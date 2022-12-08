@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\obs-transitions.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\transition-cut.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\transition-fade.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\transition-fade-to-color.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\transition-luma-wipe.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\transition-slide.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\transition-stinger.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-transitions\transition-swipe.c" />
+  </ItemGroup>
+</Project>

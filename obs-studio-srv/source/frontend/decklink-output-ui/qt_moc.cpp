@@ -1,0 +1,8 @@
+#include "moc_combobox-ignorewheel.cpp"
+#include "moc_DecklinkOutputUI.cpp"
+#include "moc_double-slider.cpp"
+#include "moc_properties-view.cpp"
+#include "moc_properties-view.moc.cpp"
+#include "moc_slider-ignorewheel.cpp"
+#include "moc_spinbox-ignorewheel.cpp"
+#include "moc_vertical-scroll-area.cpp"

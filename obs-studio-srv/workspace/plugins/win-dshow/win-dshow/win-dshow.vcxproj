@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{fd677a39-14c0-49cb-91cc-caa832486943}</ProjectGuid>
+    <RootNamespace>windshow</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\plugins\win-dshow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;setupapi.lib;strmiids.lib;ksuser.lib;winmm.lib;wmcodecdspuuid.lib;avcodec.lib;avutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\plugins\win-dshow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;setupapi.lib;strmiids.lib;ksuser.lib;winmm.lib;wmcodecdspuuid.lib;avcodec.lib;avutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\plugins\win-dshow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;setupapi.lib;strmiids.lib;ksuser.lib;winmm.lib;wmcodecdspuuid.lib;avcodec.lib;avutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\plugins\win-dshow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;setupapi.lib;strmiids.lib;ksuser.lib;winmm.lib;wmcodecdspuuid.lib;avcodec.lib;avutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\encode-dstr.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\ffmpeg-decode.h" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\avermedia-encode.h" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\capture-filter.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\device.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-base.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-demux.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-device-defs.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-enum.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-formats.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-media-type.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\encoder.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\external\IVideoCaptureFilter.h" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\log.hpp" />
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\output-filter.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\dshow-plugin.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\ffmpeg-decode.c" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\capture-filter.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\device.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-base.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-demux.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-encoded-device.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-enum.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-formats.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshow-media-type.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshowcapture.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\dshowencode.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\encoder.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\log.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\libdshowcapture\source\output-filter.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\win-dshow-encoder.cpp" />
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-dshow\win-dshow.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

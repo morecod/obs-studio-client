@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="inc">
+      <UniqueIdentifier>{4c82c595-70a9-4cf2-8130-eaabc22660d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{1d47ebe8-9601-4564-8f0a-227b01e52fd0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-subsystem.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-shaderparser.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-helpers.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-zstencil.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-texturecube.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-vertexbuffer.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-windows.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-subsystem.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-texture2d.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-texture3d.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-shader.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-shaderparser.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-stagesurf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-indexbuffer.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-helpers.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

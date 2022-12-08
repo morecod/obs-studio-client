@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="libmfx">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="obs-qsv11">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="libmfx\inc">
+      <UniqueIdentifier>{94da33f7-f73b-4152-b1c6-1499f4bfe066}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libmfx\src">
+      <UniqueIdentifier>{b93ad16a-c576-4a97-9060-d42c573d64d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="obs-qsv11\inc">
+      <UniqueIdentifier>{5eeb7180-5685-4130-bf84-2cefec859aa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="obs-qsv11\src">
+      <UniqueIdentifier>{445a9173-0651-43ab-ad79-56f23b026bb1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_critical_section.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_dispatcher.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_dispatcher_defs.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_dispatcher_log.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_driver_store_loader.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_dxva2_device.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_exposed_functions_list.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_library_iterator.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_load_dll.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_load_plugin.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_plugin_hive.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_vector.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfx_win_reg_key.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\mfxaudio_exposed_functions_list.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxadapter.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxastructures.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxaudio.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxaudio++.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxcommon.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxdefs.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxenc.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxjpeg.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxmvc.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxpak.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxplugin.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxplugin++.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxsession.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxstructures.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxvideo.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxvideo++.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\include\msdk\include\mfxvstructures.h">
+      <Filter>libmfx\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\common_directx9.h">
+      <Filter>obs-qsv11\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\common_directx11.h">
+      <Filter>obs-qsv11\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\common_utils.h">
+      <Filter>obs-qsv11\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\device_directx9.h">
+      <Filter>obs-qsv11\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\QSV_Encoder.h">
+      <Filter>obs-qsv11\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\QSV_Encoder_Internal.h">
+      <Filter>obs-qsv11\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\main.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_critical_section.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_dispatcher.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_dispatcher_log.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_driver_store_loader.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_dxva2_device.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_function_table.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_library_iterator.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_load_dll.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_load_plugin.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_plugin_hive.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\libmfx\src\mfx_win_reg_key.cpp">
+      <Filter>libmfx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\common_directx9.cpp">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\common_directx11.cpp">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\common_utils.cpp">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\common_utils_windows.cpp">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\device_directx9.cpp">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\obs-qsv11.c">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\obs-qsv11-plugin-main.c">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\QSV_Encoder.cpp">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-qsv11\QSV_Encoder_Internal.cpp">
+      <Filter>obs-qsv11\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

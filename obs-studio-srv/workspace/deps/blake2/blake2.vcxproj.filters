@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\deps\blake2\src\blake2-impl.h" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\deps\blake2\src\blake2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\deps\blake2\src\blake2b-ref.c" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0eee604b-72d7-4c2a-b42d-27b675fed225}</ProjectGuid>
+    <RootNamespace>decklinkcaptions</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\plugins\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Gui.lib;Qt5Core.lib;$(OutDir)libobs.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)decklink-ouput-ui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Gui.lib;Qt5Core.lib;$(OutDir)libobs.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)decklink-ouput-ui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Gui.lib;Qt5Core.lib;$(OutDir)libobs.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)decklink-ouput-ui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Gui.lib;Qt5Core.lib;$(OutDir)libobs.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)decklink-ouput-ui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.cpp" />
+    <ClCompile Include="..\..\..\..\source\plugins\decklink\qt_moc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

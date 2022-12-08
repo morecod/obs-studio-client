@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\async-delay-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\chroma-key-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\color-correction-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\color-grade-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\color-key-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\compressor-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\crop-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\expander-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\gain-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\gpu-delay.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\invert-audio-polarity.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\limiter-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\luma-key-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\mask-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\noise-gate-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\noise-suppress-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\obs-filters.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\scale-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\scroll-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\sharpness-filter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="inc">
+      <UniqueIdentifier>{7ff92a18-633f-4e57-ac92-c9132fa79152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{587023d9-69ce-4fae-bad7-e21883b552e1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\plugins\obs-filters\nvafx-load.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\plugins\obs-filters\obs-filters-config.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
