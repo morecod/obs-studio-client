@@ -8,7 +8,7 @@
 #include <mutex>
 #include <vector>
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 #include <AudioToolbox/AudioToolbox.h>
 #include <util/apple/cfstring-utils.h>
 #endif
@@ -29,7 +29,7 @@
 			CA_LOG(level, format, ##__VA_ARGS__);  \
 	} while (false)
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include "windows-imports.h"
 #endif
 
@@ -129,7 +129,7 @@ typedef struct ca_encoder ca_encoder;
 
 namespace std {
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 template<> struct default_delete<remove_pointer<CFErrorRef>::type> {
 	void operator()(remove_pointer<CFErrorRef>::type *err)
 	{
@@ -255,7 +255,7 @@ static DStr osstatus_to_dstr(OSStatus code)
 {
 	DStr result;
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 	cf_ptr<CFErrorRef> err{CFErrorCreate(
 		kCFAllocatorDefault, kCFErrorDomainOSStatus, code, NULL)};
 	cf_ptr<CFStringRef> str{CFErrorCopyDescription(err.get())};
@@ -1391,7 +1391,7 @@ MODULE_EXPORT const char *obs_module_description(void)
 
 bool obs_module_load(void)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (!load_core_audio()) {
 		CA_LOG(LOG_WARNING, "CoreAudio AAC encoder not installed on "
 				    "the system or couldn't be loaded");
@@ -1420,7 +1420,7 @@ bool obs_module_load(void)
 	return true;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 void obs_module_unload(void)
 {
 	unload_core_audio();

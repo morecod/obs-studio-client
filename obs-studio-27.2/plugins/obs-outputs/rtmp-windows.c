@@ -1,4 +1,4 @@
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include "rtmp-stream.h"
 
 static void fatal_sock_shutdown(struct rtmp_stream *stream)

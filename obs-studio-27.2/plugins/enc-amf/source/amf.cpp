@@ -25,7 +25,7 @@
 #include <components\ComponentCaps.h>
 #include <components\VideoEncoderVCE.h>
 
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER)
 extern "C" {
 #include <windows.h>
 }
@@ -93,7 +93,7 @@ Plugin::AMD::AMF::AMF()
 	m_TimerPeriod   = 0;
 #pragma endregion Null Class Members
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	std::vector<char> verbuf;
 	void*             pProductVersion     = nullptr;
 	uint32_t          lProductVersionSize = 0;
@@ -112,7 +112,7 @@ Plugin::AMD::AMF::AMF()
 	}
 
 // Windows: Get Product Version for Driver Matching
-#ifdef _WIN32
+#ifdef _MSC_VER
 	{
 		verbuf.resize(static_cast<size_t>(GetFileVersionInfoSizeW(AMF_DLL_NAME, nullptr)) * 2);
 		GetFileVersionInfoW(AMF_DLL_NAME, 0, (DWORD)verbuf.size(), verbuf.data());
@@ -135,7 +135,7 @@ Plugin::AMD::AMF::AMF()
 		// Retrieve file description for language and code page "i".
 		VerQueryValueA(pBlock, buf.data(), &pProductVersion, &lProductVersionSize);
 	}
-#endif _WIN32
+#endif _MSC_VER
 
 	// Query Runtime Version
 	AMFQueryVersion = (AMFQueryVersion_Fn)GetProcAddress(m_AMFModule, AMF_QUERY_VERSION_FUNCTION_NAME);

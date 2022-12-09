@@ -34,7 +34,7 @@
 #include <time.h>
 #include <stdint.h>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 
 #include <winsock2.h>
 #include <ws2tcpip.h>
@@ -58,7 +58,7 @@
 #define sleep(n)	Sleep(n*1000)
 #define msleep(n)	Sleep(n)
 #define SET_RCVTIMEO(tv,s)	int tv = s*1000
-#else /* !_WIN32 */
+#else /* !_MSC_VER */
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/times.h>

@@ -14,7 +14,7 @@
 #include "ui_color-source-toolbar.h"
 #include "ui_text-source-toolbar.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define get_os_module(win, mac, linux) obs_get_module(win)
 #define get_os_text(mod, win, mac, linux) obs_module_get_locale_text(mod, win)
 #elif __APPLE__
@@ -264,7 +264,7 @@ void WindowCaptureToolbar::Init()
 					     "WindowUtils.Window", "Window");
 	ui->deviceLabel->setText(device_str);
 
-#if !defined(_WIN32) && !defined(__APPLE__) //linux
+#if !defined(_MSC_VER) && !defined(__APPLE__) //linux
 	prop_name = "capture_window";
 #else
 	prop_name = "window";
@@ -294,7 +294,7 @@ void DisplayCaptureToolbar::Init()
 	ui->deviceLabel->setText(device_str);
 	is_int = true;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	prop_name = "monitor";
 #elif __APPLE__
 	prop_name = "display";
@@ -564,7 +564,7 @@ void ColorSourceToolbar::on_choose_clicked()
 	QColorDialog::ColorDialogOptions options;
 
 	options |= QColorDialog::ShowAlphaChannel;
-#ifndef _WIN32
+#ifndef _MSC_VER
 	options |= QColorDialog::DontUseNativeDialog;
 #endif
 
@@ -639,7 +639,7 @@ void TextSourceToolbar::on_selectFont_clicked()
 	uint32_t flags;
 	bool success;
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 	options = QFontDialog::DontUseNativeDialog;
 #endif
 
@@ -689,7 +689,7 @@ void TextSourceToolbar::on_selectColor_clicked()
 	QColorDialog::ColorDialogOptions options;
 
 	options |= QColorDialog::ShowAlphaChannel;
-#ifndef _WIN32
+#ifndef _MSC_VER
 	options |= QColorDialog::DontUseNativeDialog;
 #endif
 

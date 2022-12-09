@@ -966,7 +966,7 @@ bool is_64_bit_windows(void)
 {
 #if defined(_WIN64)
 	return true;
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
 	BOOL b64 = false;
 	return IsWow64Process(GetCurrentProcess(), &b64) && b64;
 #endif

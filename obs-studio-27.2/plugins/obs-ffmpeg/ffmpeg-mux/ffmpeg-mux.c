@@ -14,7 +14,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <io.h>
 #include <fcntl.h>
 #include <windows.h>
@@ -824,7 +824,7 @@ static inline bool ffmpeg_mux_packet(struct ffmpeg_mux *ffm, uint8_t *buf,
 
 /* ------------------------------------------------------------------------- */
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 int wmain(int argc, wchar_t *argv_w[])
 #else
 int main(int argc, char *argv[])
@@ -836,7 +836,7 @@ int main(int argc, char *argv[])
 	bool fail = false;
 	int ret;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	char **argv;
 
 	SetErrorMode(SEM_FAILCRITICALERRORS);
@@ -877,7 +877,7 @@ int main(int argc, char *argv[])
 	ffmpeg_mux_free(&ffm);
 	resize_buf_free(&rb);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	for (int i = 0; i < argc; i++)
 		free(argv[i]);
 	free(argv);

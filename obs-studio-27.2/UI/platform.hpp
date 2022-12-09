@@ -39,7 +39,7 @@ void SetAlwaysOnTop(QWidget *window, bool enable);
 
 bool SetDisplayAffinitySupported(void);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 uint32_t GetWindowsVersion();
 uint32_t GetWindowsBuild();
 void SetAeroEnabled(bool enable);

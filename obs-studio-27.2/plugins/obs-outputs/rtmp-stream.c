@@ -16,7 +16,7 @@
 ******************************************************************************/
 
 #include "rtmp-stream.h"
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <util/windows/win-version.h>
 #endif
 
@@ -284,7 +284,7 @@ static bool process_recv_data(struct rtmp_stream *stream, size_t size)
 	RTMPPacket packet = {0};
 
 	if (!RTMP_ReadPacket(rtmp, &packet)) {
-#ifdef _WIN32
+#ifdef _MSC_VER
 		int error = WSAGetLastError();
 #else
 		int error = errno;
@@ -308,7 +308,7 @@ static void droptest_cap_data_rate(struct rtmp_stream *stream, size_t size)
 	uint64_t ts = os_gettime_ns();
 	struct droptest_info info;
 
-#if defined(_WIN32) && defined(TEST_FRAMEDROPS_WITH_BITRATE_SHORTCUTS)
+#if defined(_MSC_VER) && defined(TEST_FRAMEDROPS_WITH_BITRATE_SHORTCUTS)
 	uint64_t check_elapsed = ts - stream->droptest_last_key_check;
 
 	if (check_elapsed > (200ULL * MSEC_TO_NSEC)) {
@@ -426,7 +426,7 @@ static int send_packet(struct rtmp_stream *stream,
 	assert(idx < RTMP_MAX_STREAMS);
 
 	if (!stream->new_socket_loop) {
-#ifdef _WIN32
+#ifdef _MSC_VER
 		ret = ioctlsocket(stream->rtmp.m_sb.sb_socket, FIONREAD,
 				  (u_long *)&recv_size);
 #else
@@ -482,7 +482,7 @@ static inline bool can_shutdown_stream(struct rtmp_stream *stream,
 static void set_output_error(struct rtmp_stream *stream)
 {
 	const char *msg = NULL;
-#ifdef _WIN32
+#ifdef _MSC_VER
 	switch (stream->rtmp.last_error_code) {
 	case WSAETIMEDOUT:
 		msg = obs_module_text("ConnectionTimedOut");
@@ -586,7 +586,7 @@ static void dbr_add_frame(struct rtmp_stream *stream, struct dbr_frame *back)
 static void dbr_set_bitrate(struct rtmp_stream *stream);
 static bool rtmp_stream_start(void *data);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define socklen_t int
 #endif
 
@@ -607,7 +607,7 @@ static void *send_thread(void *data)
 
 	os_set_thread_name("rtmp-stream: send_thread");
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	// Despite MSDN claiming otherwise, send buffer auto tuning on
 	// Windows 7 doesn't seem to work very well.
 	if (get_win_ver_int() == 0x601) {
@@ -693,7 +693,7 @@ static void *send_thread(void *data)
 		info("User stopped the stream");
 	}
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	log_sndbuf_size(stream);
 #endif
 
@@ -855,7 +855,7 @@ static int init_send(struct rtmp_stream *stream)
 
 	if (stream->new_socket_loop) {
 		int one = 1;
-#ifdef _WIN32
+#ifdef _MSC_VER
 		if (ioctlsocket(stream->rtmp.m_sb.sb_socket, FIONBIO, &one)) {
 			stream->rtmp.last_error_code = WSAGetLastError();
 #else
@@ -919,7 +919,7 @@ static int init_send(struct rtmp_stream *stream)
 		stream->write_buf_size = ideal_buffer_size;
 		stream->write_buf = bmalloc(ideal_buffer_size);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 		ret = pthread_create(&stream->socket_thread, NULL,
 				     socket_thread_windows, stream);
 #else
@@ -965,7 +965,7 @@ static int init_send(struct rtmp_stream *stream)
 	return OBS_OUTPUT_SUCCESS;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 static void win32_log_interface_type(struct rtmp_stream *stream)
 {
 	RTMP *rtmp = &stream->rtmp;
@@ -1081,7 +1081,7 @@ static int try_connect(struct rtmp_stream *stream)
 	stream->rtmp.m_bSendChunkSizeInfo = true;
 	stream->rtmp.m_bUseNagle = true;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	win32_log_interface_type(stream);
 #endif
 

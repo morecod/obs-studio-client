@@ -19,7 +19,7 @@
 
 #include <util/darray.h>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <ws2tcpip.h>
 #include <winsock2.h>
 #include <ws2ipdef.h>

@@ -823,7 +823,7 @@ Plugin::AMD::ProfileLevel Utility::H265ProfileLevel(std::pair<uint32_t, uint32_t
 // Threading Specific
 //////////////////////////////////////////////////////////////////////////
 
-#if (defined _WIN32) || (defined _WIN64) // Windows
+#if (defined _MSC_VER) || (defined _WIN64) // Windows
 #include <windows.h>
 
 const DWORD MS_VC_EXCEPTION = 0x406D1388;

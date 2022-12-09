@@ -45,7 +45,7 @@
 #endif
 
 #if defined(USE_MBEDTLS)
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 #include <windows.h>
 #include <wincrypt.h>
 #elif defined(__APPLE__)
@@ -170,7 +170,7 @@ static void DecodeTEA(AVal *key, AVal *text);
 static int HTTP_Post(RTMP *r, RTMPTCmd cmd, const char *buf, int len);
 static int HTTP_read(RTMP *r, int fill);
 
-#if !defined(_WIN32) && !defined(_DEBUG)
+#if !defined(_MSC_VER) && !defined(_DEBUG)
 static int clk_tck;
 #endif
 
@@ -183,7 +183,7 @@ RTMP_GetTime()
 {
 #ifdef _DEBUG
     return 0;
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
     return timeGetTime();
 #else
     struct tms t;
@@ -197,7 +197,7 @@ socketerror(int err)
 {
     static char buff[1024];
 
-#ifdef _WIN32
+#ifdef _MSC_VER
     if (FormatMessageA (FORMAT_MESSAGE_FROM_SYSTEM, NULL, err, 0, buff, sizeof(buff), NULL))
     {
         int i, len;
@@ -289,7 +289,7 @@ RTMP_TLS_LoadCerts(RTMP *r) {
     mbedtls_x509_crt *chain = r->RTMP_TLS_ctx->cacert = calloc(1, sizeof(struct mbedtls_x509_crt));
     mbedtls_x509_crt_init(chain);
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
     HCERTSTORE hCertStore;
     PCCERT_CONTEXT pCertContext = NULL;
 
@@ -532,7 +532,7 @@ RTMP_UpdateBufferMS(RTMP *r)
 }
 
 #undef OSS
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define OSS	"WIN"
 #elif defined(__sun__)
 #define OSS	"SOL"
@@ -784,7 +784,7 @@ add_addr_info(struct sockaddr_storage *service, socklen_t *addrlen, AVal *host, 
 
     if (err)
     {
-#ifndef _WIN32
+#ifndef _MSC_VER
 #define gai_strerrorA gai_strerror
 #endif
         RTMP_Log(RTMP_LOGERROR, "Could not resolve %s: %s (%d)", hostname, gai_strerrorA(GetSockError()), GetSockError());
@@ -822,7 +822,7 @@ add_addr_info(struct sockaddr_storage *service, socklen_t *addrlen, AVal *host, 
     if (service->ss_family == AF_UNSPEC || *addrlen == 0)
     {
         // since we're handling multiple addresses internally, fake the correct error response
-#ifdef _WIN32
+#ifdef _MSC_VER
         *socket_error = WSANO_DATA;
 #elif __FreeBSD__
         *socket_error = ENOATTR;
@@ -843,7 +843,7 @@ finish:
     return ret;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define E_TIMEDOUT     WSAETIMEDOUT
 #define E_CONNREFUSED  WSAECONNREFUSED
 #define E_ACCES        WSAEACCES
@@ -862,7 +862,7 @@ RTMP_Connect0(RTMP *r, struct sockaddr * service, socklen_t addrlen)
     r->m_fDuration = 0.0;
 
     //best to be explicit, we need overlapped socket
-#ifdef _WIN32
+#ifdef _MSC_VER
     r->m_sb.sb_socket = WSASocket(service->sa_family, SOCK_STREAM, IPPROTO_TCP, NULL, 0, WSA_FLAG_OVERLAPPED);
 #else
     r->m_sb.sb_socket = socket(service->sa_family, SOCK_STREAM, IPPROTO_TCP);
@@ -870,7 +870,7 @@ RTMP_Connect0(RTMP *r, struct sockaddr * service, socklen_t addrlen)
 
     if (r->m_sb.sb_socket != INVALID_SOCKET)
     {
-#ifndef _WIN32
+#ifndef _MSC_VER
 #ifdef SO_NOSIGPIPE
         setsockopt(r->m_sb.sb_socket, SOL_SOCKET, SO_NOSIGPIPE, &(int){ 1 }, sizeof(int));
 #endif
@@ -1048,7 +1048,7 @@ RTMP_Connect1(RTMP *r, RTMPPacket *cp)
 int
 RTMP_Connect(RTMP *r, RTMPPacket *cp)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
     HOSTENT *h;
 #endif
     struct sockaddr_storage service;
@@ -1059,7 +1059,7 @@ RTMP_Connect(RTMP *r, RTMPPacket *cp)
     if (!r->Link.hostname.av_len)
         return FALSE;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
     //COMODO security software sandbox blocks all DNS by returning "host not found"
     h = gethostbyname("localhost");
     if (!h && GetLastError() == WSAHOST_NOT_FOUND)

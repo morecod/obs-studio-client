@@ -22,7 +22,7 @@
 #include "amf.hpp"
 #include "api-base.hpp"
 
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER) || defined(_WIN64)
 extern "C" {
 #include <windows.h>
 }
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 	argc;
 	argv;
 
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER) || defined(_WIN64)
 	SetErrorMode(SEM_NOGPFAULTERRORBOX | SEM_FAILCRITICALERRORS);
 #endif
 

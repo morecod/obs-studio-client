@@ -2,7 +2,7 @@
 
 #include "obs-outputs-config.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <winsock2.h>
 #include <mbedtls/threading.h>
 #endif
@@ -21,7 +21,7 @@ extern struct obs_output_info flv_output_info;
 extern struct obs_output_info ftl_output_info;
 #endif
 
-#if defined(_WIN32) && defined(MBEDTLS_THREADING_ALT)
+#if defined(_MSC_VER) && defined(MBEDTLS_THREADING_ALT)
 void mbed_mutex_init(mbedtls_threading_mutex_t *m)
 {
 	CRITICAL_SECTION *c = bzalloc(sizeof(CRITICAL_SECTION));
@@ -54,12 +54,12 @@ int mbed_mutex_unlock(mbedtls_threading_mutex_t *m)
 
 bool obs_module_load(void)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	WSADATA wsad;
 	WSAStartup(MAKEWORD(2, 2), &wsad);
 #endif
 
-#if defined(_WIN32) && defined(MBEDTLS_THREADING_ALT)
+#if defined(_MSC_VER) && defined(MBEDTLS_THREADING_ALT)
 	mbedtls_threading_set_alt(mbed_mutex_init, mbed_mutex_free,
 				  mbed_mutex_lock, mbed_mutex_unlock);
 #endif
@@ -75,7 +75,7 @@ bool obs_module_load(void)
 
 void obs_module_unload(void)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 #ifdef MBEDTLS_THREADING_ALT
 	mbedtls_threading_free_alt();
 #endif

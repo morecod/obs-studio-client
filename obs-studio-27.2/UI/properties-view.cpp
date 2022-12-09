@@ -1774,7 +1774,7 @@ bool WidgetInfo::ColorChangedInternal(const char *setting, bool supportAlpha)
 	 * other open QDialogs on exit, and
 	 * https://bugreports.qt-project.org/browse/QTBUG-34532
 	 */
-#ifndef _WIN32
+#ifndef _MSC_VER
 	options |= QColorDialog::DontUseNativeDialog;
 #endif
 
@@ -1822,7 +1822,7 @@ bool WidgetInfo::FontChanged(const char *setting)
 
 	QFontDialog::FontDialogOptions options;
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 	options = QFontDialog::DontUseNativeDialog;
 #endif
 

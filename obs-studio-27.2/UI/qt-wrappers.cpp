@@ -29,7 +29,7 @@
 #include <QFileDialog>
 #include <QStandardItemModel>
 
-#if !defined(_WIN32) && !defined(__APPLE__)
+#if !defined(_MSC_VER) && !defined(__APPLE__)
 #include <obs-nix-platform.h>
 #endif
 
@@ -115,7 +115,7 @@ bool QTToGSWindow(QWindow *window, gs_window &gswindow)
 {
 	bool success = true;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	gswindow.hwnd = (HWND)window->winId();
 #elif __APPLE__
 	gswindow.view = (id)window->winId();

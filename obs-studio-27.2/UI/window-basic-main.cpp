@@ -72,7 +72,7 @@
 #include <fstream>
 #include <sstream>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include "win-update/win-update.hpp"
 #include "windows.h"
 #endif
@@ -157,7 +157,7 @@ static void AddExtraModulePaths()
 	}
 
 	char base_module_dir[512];
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	int ret = GetProgramDataPath(base_module_dir, sizeof(base_module_dir),
 				     "obs-studio/plugins/%module%");
 #else
@@ -1762,7 +1762,7 @@ void OBSBasic::OBSInit()
 
 	/* hack to prevent elgato from loading its own QtNetwork that it tries
 	 * to ship with */
-#if defined(_WIN32) && !defined(_DEBUG)
+#if defined(_MSC_VER) && !defined(_DEBUG)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	LoadLibraryW(L"Qt5Network");
 #else
@@ -1862,7 +1862,7 @@ void OBSBasic::OBSInit()
 					  Qt::QueuedConnection,
 					  Q_ARG(bool, previewEnabled));
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	uint32_t winVer = GetWindowsVersion();
 	if (winVer > 0 && winVer < 0x602) {
 		bool disableAero =
@@ -1896,7 +1896,7 @@ void OBSBasic::OBSInit()
 				 sysTrayEnabled &&
 				 (opt_minimize_tray || sysTrayWhenStarted);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	SetWin32DropStyle(this);
 
 	if (!hideWindowOnStart)
@@ -1923,7 +1923,7 @@ void OBSBasic::OBSInit()
 		ui->actionAlwaysOnTop->setVisible(false);
 	}
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 	if (!hideWindowOnStart)
 		show();
 #endif
@@ -1984,7 +1984,7 @@ void OBSBasic::OBSInit()
 
 	SystemTray(true);
 
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	taskBtn->setWindow(windowHandle());
 #endif
 
@@ -2031,7 +2031,7 @@ void OBSBasic::OBSInit()
 
 	ui->sources->UpdateIcons();
 
-#if !defined(_WIN32)
+#if !defined(_MSC_VER)
 	delete ui->actionShowCrashLogs;
 	delete ui->actionUploadLastCrashLog;
 	delete ui->menuCrashLogs;
@@ -2050,7 +2050,7 @@ void OBSBasic::OBSInit()
 	ui->actionFullscreenInterface = nullptr;
 #endif
 
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	if (App()->IsUpdaterDisabled())
 		ui->actionCheckForUpdates->setEnabled(false);
 #endif
@@ -2065,7 +2065,7 @@ void OBSBasic::OnFirstLoad()
 	if (api)
 		api->on_event(OBS_FRONTEND_EVENT_FINISHED_LOADING);
 
-#if defined(BROWSER_AVAILABLE) && defined(_WIN32)
+#if defined(BROWSER_AVAILABLE) && defined(_MSC_VER)
 	/* Attempt to load init screen if available */
 	if (cef) {
 		WhatsNewInfoThread *wnit = new WhatsNewInfoThread();
@@ -2090,7 +2090,7 @@ void OBSBasic::OnFirstLoad()
 void OBSBasic::ReceivedIntroJson(const QString &text)
 {
 #ifdef BROWSER_AVAILABLE
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (closing)
 		return;
 
@@ -2200,7 +2200,7 @@ void OBSBasic::ReceivedIntroJson(const QString &text)
 void OBSBasic::ShowWhatsNew(const QString &url)
 {
 #ifdef BROWSER_AVAILABLE
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (closing)
 		return;
 
@@ -2273,7 +2273,7 @@ void OBSBasic::InitHotkeys()
 	t.right = Str("Hotkeys.Right");
 	t.up = Str("Hotkeys.Up");
 	t.down = Str("Hotkeys.Down");
-#ifdef _WIN32
+#ifdef _MSC_VER
 	t.meta = Str("Hotkeys.Windows");
 #else
 	t.meta = Str("Hotkeys.Super");
@@ -2668,7 +2668,7 @@ OBSBasic::~OBSBasic()
 			ui->lockUI->isChecked());
 	config_save_safe(App()->GlobalConfig(), "tmp", nullptr);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	uint32_t winVer = GetWindowsVersion();
 	if (winVer > 0 && winVer < 0x602) {
 		bool disableAero =
@@ -3642,7 +3642,7 @@ void OBSBasic::TimedCheckForUpdates()
 #ifdef UPDATE_SPARKLE
 	init_sparkle_updater(config_get_bool(App()->GlobalConfig(), "General",
 					     "UpdateToUndeployed"));
-#elif _WIN32
+#elif _MSC_VER
 	long long lastUpdate = config_get_int(App()->GlobalConfig(), "General",
 					      "LastUpdateCheck");
 	uint32_t lastVersion =
@@ -3666,7 +3666,7 @@ void OBSBasic::CheckForUpdates(bool manualUpdate)
 {
 #ifdef UPDATE_SPARKLE
 	trigger_sparkle_update();
-#elif _WIN32
+#elif _MSC_VER
 	ui->actionCheckForUpdates->setEnabled(false);
 
 	if (updateCheckThread && updateCheckThread->isRunning())
@@ -4230,7 +4230,7 @@ bool OBSBasic::Active() const
 	return outputHandler->Active();
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define IS_WIN32 1
 #else
 #define IS_WIN32 0
@@ -4919,7 +4919,7 @@ void OBSBasic::AddProjectorMenuMonitors(QMenu *parent, QObject *target,
 		QRect screenGeometry = screen->geometry();
 		qreal ratio = screen->devicePixelRatio();
 		QString name = "";
-#ifdef _WIN32
+#ifdef _MSC_VER
 		QTextStream fullname(&name);
 		fullname << GetMonitorName(screen->name());
 		fullname << " (";
@@ -5981,7 +5981,7 @@ void OBSBasic::UploadLog(const char *subdir, const char *file, const bool crash)
 		return;
 
 	ui->menuLogFiles->setEnabled(false);
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	ui->menuCrashLogs->setEnabled(false);
 #endif
 
@@ -6065,7 +6065,7 @@ void OBSBasic::on_actionCheckForUpdates_triggered()
 void OBSBasic::logUploadFinished(const QString &text, const QString &error)
 {
 	ui->menuLogFiles->setEnabled(true);
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	ui->menuCrashLogs->setEnabled(true);
 #endif
 
@@ -6081,7 +6081,7 @@ void OBSBasic::logUploadFinished(const QString &text, const QString &error)
 void OBSBasic::crashUploadFinished(const QString &text, const QString &error)
 {
 	ui->menuLogFiles->setEnabled(true);
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	ui->menuCrashLogs->setEnabled(true);
 #endif
 
@@ -6572,7 +6572,7 @@ void OBSBasic::SetupBroadcast()
 #endif
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 static inline void UpdateProcessPriority()
 {
 	const char *priority = config_get_string(App()->GlobalConfig(),
@@ -6605,7 +6605,7 @@ inline void OBSBasic::OnActivate(bool force)
 		App()->IncrementSleepInhibition();
 		UpdateProcessPriority();
 
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		taskBtn->setOverlayIcon(QIcon::fromTheme(
 			"obs-active", QIcon(":/res/images/active.png")));
 #endif
@@ -6636,7 +6636,7 @@ inline void OBSBasic::OnDeactivate()
 		App()->DecrementSleepInhibition();
 		ClearProcessPriority();
 
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		taskBtn->clearOverlayIcon();
 #endif
 		if (trayIcon && trayIcon->isVisible()) {
@@ -6663,7 +6663,7 @@ inline void OBSBasic::OnDeactivate()
 #endif
 			trayIcon->setIcon(QIcon::fromTheme("obs-tray-paused",
 							   trayIconFile));
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 			taskBtn->setOverlayIcon(QIcon::fromTheme(
 				"obs-paused",
 				QIcon(":/res/images/paused.png")));
@@ -6679,7 +6679,7 @@ inline void OBSBasic::OnDeactivate()
 #endif
 			trayIcon->setIcon(QIcon::fromTheme("obs-tray-active",
 							   trayIconFile));
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 			taskBtn->setOverlayIcon(QIcon::fromTheme(
 				"obs-active",
 				QIcon(":/res/images/active.png")));
@@ -7669,7 +7669,7 @@ void OBSBasic::PreviewDisabledMenu(const QPoint &pos)
 
 void OBSBasic::on_actionAlwaysOnTop_triggered()
 {
-#ifndef _WIN32
+#ifndef _MSC_VER
 	/* Make sure all dialogs are safely and successfully closed before
 	 * switching the always on top mode due to the fact that windows all
 	 * have to be recreated, so queue the actual toggle to happen after
@@ -9404,7 +9404,7 @@ void OBSBasic::ColorChange()
 				obs_data_get_string(curPrivData, "color");
 			const char *customColor = *oldColor != 0 ? oldColor
 								 : "#55FF0000";
-#ifndef _WIN32
+#ifndef _MSC_VER
 			options |= QColorDialog::DontUseNativeDialog;
 #endif
 
@@ -9637,7 +9637,7 @@ void OBSBasic::PauseRecording()
 
 		ui->statusbar->RecordingPaused();
 
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		taskBtn->setOverlayIcon(QIcon::fromTheme(
 			"obs-paused", QIcon(":/res/images/paused.png")));
 #endif
@@ -9681,7 +9681,7 @@ void OBSBasic::UnpauseRecording()
 
 		ui->statusbar->RecordingUnpaused();
 
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		taskBtn->setOverlayIcon(QIcon::fromTheme(
 			"obs-active", QIcon(":/res/images/active.png")));
 #endif
@@ -9967,7 +9967,7 @@ void OBSBasic::SetDisplayAffinity(QWindow *window)
 	if (window->property("isOBSProjectorWindow") == true)
 		return;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	HWND hwnd = (HWND)window->winId();
 
 	DWORD curAffinity;

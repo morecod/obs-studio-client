@@ -3,11 +3,11 @@
 
 #include <stdint.h>
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 #include <sys/time.h>
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 int gettimeofday(struct timeval * tp, struct timezone * tzp);
 #endif
 int timeval_subtract(struct timeval *result, const struct timeval *end, const struct timeval *start);

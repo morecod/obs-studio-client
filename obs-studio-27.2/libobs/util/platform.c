@@ -52,7 +52,7 @@ FILE *os_wfopen(const wchar_t *path, const char *mode)
 
 FILE *os_fopen(const char *path, const char *mode)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	wchar_t *wpath = NULL;
 	FILE *file = NULL;
 
@@ -87,7 +87,7 @@ int64_t os_fgetsize(FILE *file)
 	return size;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 int os_stat(const char *file, struct stat *st)
 {
 	if (file) {

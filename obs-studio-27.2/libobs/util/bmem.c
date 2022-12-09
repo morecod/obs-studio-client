@@ -29,7 +29,7 @@
 #define ALIGNMENT 32
 
 /* TODO: use memalign for non-windows systems */
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 #define ALIGNED_MALLOC 1
 #else
 #define ALIGNMENT_HACK 1

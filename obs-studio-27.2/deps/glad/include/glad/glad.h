@@ -8,7 +8,7 @@
 #define __glad_h_
 #define __gl_h_
 
-#if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
+#if defined(_MSC_VER) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN 1
 #endif
@@ -93,9 +93,9 @@ typedef unsigned long long int uint64_t;
 typedef long int int32_t;
 typedef long long int int64_t;
 typedef unsigned long long int uint64_t;
-#elif defined(_WIN32) && defined(__GNUC__)
+#elif defined(_MSC_VER) && defined(__GNUC__)
 #include <stdint.h>
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
 typedef __int32 int32_t;
 typedef __int64 int64_t;
 typedef unsigned __int64 uint64_t;

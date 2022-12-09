@@ -58,7 +58,7 @@ static struct obs_source_info freetype2_source_info_v2 = {
 	.version = 2,
 	.type = OBS_SOURCE_TYPE_INPUT,
 	.output_flags = OBS_SOURCE_VIDEO |
-#ifdef _WIN32
+#ifdef _MSC_VER
 			OBS_SOURCE_DEPRECATED |
 #endif
 			OBS_SOURCE_CUSTOM_DRAW,
@@ -508,7 +508,7 @@ error:
 	obs_data_release(font_obj);
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define DEFAULT_FACE "Arial"
 #elif __APPLE__
 #define DEFAULT_FACE "Helvetica"

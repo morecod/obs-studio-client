@@ -210,7 +210,7 @@ private:
 		EnableApplyButton(false);
 	}
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	bool aeroWasDisabled = false;
 	QCheckBox *toggleAero = nullptr;
 	void ToggleDisableAero(bool checked);

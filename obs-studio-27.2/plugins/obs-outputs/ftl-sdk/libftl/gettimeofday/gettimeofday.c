@@ -43,7 +43,7 @@
 #define SEC_TO_USEC(x) (((uint64_t)x) * USEC_IN_SEC)
 #define SEC_TO_NSEC(x) (((uint64_t)x) * NSEC_IN_SEC)
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <Windows.h>
 
 /* FILETIME of Jan 1 1970 00:00:00. */
@@ -89,7 +89,7 @@ void timespec_add_ms(struct timespec *ts, int ms) {
     ts->tv_sec++;
   }
 }
-#endif // _WIN32
+#endif // _MSC_VER
 
 //result = end - start
 int timeval_subtract(struct timeval *result, const struct timeval *end, const struct timeval *start)

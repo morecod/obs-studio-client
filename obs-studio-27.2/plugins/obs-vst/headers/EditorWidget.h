@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QWidget>
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 #include <QWindow>
 #include <Windows.h>
 #elif defined(__linux__)
@@ -49,7 +49,7 @@ class EditorWidget : public QWidget {
 
 #if defined(__APPLE__)
 	QWidget *cocoaViewContainer = NULL;
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
 	HWND windowHandle = NULL;
 #endif
 

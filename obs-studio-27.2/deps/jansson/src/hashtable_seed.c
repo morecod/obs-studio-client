@@ -37,7 +37,7 @@
 #include <sys/types.h>
 #endif
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 /* For GetModuleHandle(), GetProcAddress() and GetCurrentProcessId() */
 #include <windows.h>
 #endif
@@ -58,7 +58,7 @@ static uint32_t buf_to_uint32(char *data) {
 
 
 /* /dev/urandom */
-#if !defined(_WIN32) && defined(USE_URANDOM)
+#if !defined(_MSC_VER) && defined(USE_URANDOM)
 static int seed_from_urandom(uint32_t *seed) {
     /* Use unbuffered I/O if we have open(), close() and read(). Otherwise
        fall back to fopen() */
@@ -94,7 +94,7 @@ static int seed_from_urandom(uint32_t *seed) {
 #endif
 
 /* Windows Crypto API */
-#if defined(_WIN32) && defined(USE_WINDOWS_CRYPTOAPI)
+#if defined(_MSC_VER) && defined(USE_WINDOWS_CRYPTOAPI)
 #include <wincrypt.h>
 
 typedef BOOL (WINAPI *CRYPTACQUIRECONTEXTA)(HCRYPTPROV *phProv, LPCSTR pszContainer, LPCSTR pszProvider, DWORD dwProvType, DWORD dwFlags);
@@ -154,7 +154,7 @@ static int seed_from_timestamp_and_pid(uint32_t *seed) {
 #endif
 
     /* XOR with PID for more randomness */
-#if defined(_WIN32)
+#if defined(_MSC_VER)
     *seed ^= (uint32_t)GetCurrentProcessId();
 #elif defined(HAVE_GETPID)
     *seed ^= (uint32_t)getpid();
@@ -167,12 +167,12 @@ static uint32_t generate_seed() {
     uint32_t seed;
     int done = 0;
 
-#if !defined(_WIN32) && defined(USE_URANDOM)
+#if !defined(_MSC_VER) && defined(USE_URANDOM)
     if (seed_from_urandom(&seed) == 0)
         done = 1;
 #endif
 
-#if defined(_WIN32) && defined(USE_WINDOWS_CRYPTOAPI)
+#if defined(_MSC_VER) && defined(USE_WINDOWS_CRYPTOAPI)
     if (seed_from_windows_cryptoapi(&seed) == 0)
         done = 1;
 #endif
@@ -193,7 +193,7 @@ static uint32_t generate_seed() {
 
 volatile uint32_t hashtable_seed = 0;
 
-#if defined(HAVE_ATOMIC_BUILTINS) && (defined(HAVE_SCHED_YIELD) || !defined(_WIN32))
+#if defined(HAVE_ATOMIC_BUILTINS) && (defined(HAVE_SCHED_YIELD) || !defined(_MSC_VER))
 static volatile char seed_initialized = 0;
 
 void json_object_seed(size_t seed) {
@@ -216,7 +216,7 @@ void json_object_seed(size_t seed) {
         }
     }
 }
-#elif defined(HAVE_SYNC_BUILTINS) && (defined(HAVE_SCHED_YIELD) || !defined(_WIN32))
+#elif defined(HAVE_SYNC_BUILTINS) && (defined(HAVE_SCHED_YIELD) || !defined(_MSC_VER))
 void json_object_seed(size_t seed) {
     uint32_t new_seed = (uint32_t)seed;
 
@@ -242,7 +242,7 @@ void json_object_seed(size_t seed) {
         } while(hashtable_seed == 0);
     }
 }
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
 static long seed_initialized = 0;
 void json_object_seed(size_t seed) {
     uint32_t new_seed = (uint32_t)seed;

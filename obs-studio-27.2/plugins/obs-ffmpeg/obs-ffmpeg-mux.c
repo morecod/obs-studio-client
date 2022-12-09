@@ -17,7 +17,7 @@
 #include "ffmpeg-mux/ffmpeg-mux.h"
 #include "obs-ffmpeg-mux.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include "util/windows/win-version.h"
 #endif
 
@@ -91,7 +91,7 @@ static void *ffmpeg_mux_create(obs_data_t *settings, obs_output_t *output)
 	return stream;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define FFMPEG_MUX "obs-ffmpeg-mux.exe"
 #else
 #define FFMPEG_MUX "obs-ffmpeg-mux"
@@ -290,7 +290,7 @@ static void set_file_not_readable_error(struct ffmpeg_muxer *stream,
 {
 	struct dstr error_message;
 	dstr_init_copy(&error_message, obs_module_text("UnableToWritePath"));
-#ifdef _WIN32
+#ifdef _MSC_VER
 	/* special warning for Windows 10 users about Defender */
 	struct win_version_info ver;
 	get_win_ver(&ver);

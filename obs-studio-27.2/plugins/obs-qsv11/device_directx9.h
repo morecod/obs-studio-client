@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER)
 
 #include "common_utils.h"
 
@@ -106,4 +106,4 @@ private:
 	BOOL m_bIsA2rgb10;
 };
 
-#endif // #if defined( _WIN32 ) || defined ( _WIN64 )
+#endif // #if defined( _MSC_VER ) || defined ( _WIN64 )

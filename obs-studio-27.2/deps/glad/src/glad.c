@@ -3,7 +3,7 @@
 
 static void* get_proc(const char *namez);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <windows.h>
 static HMODULE libGL;
 
@@ -89,7 +89,7 @@ void* get_proc(const char *namez) {
     }
 #endif
     if(result == NULL) {
-#ifdef _WIN32
+#ifdef _MSC_VER
         result = (void*)GetProcAddress(libGL, namez);
 #else
         result = dlsym(libGL, namez);

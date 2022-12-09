@@ -79,7 +79,7 @@ void TranslateOSStudio(Json &res)
 		}
 
 		DirectTranslation("xshm_input", "monitor_capture");
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
 		DirectTranslation("text_ft2_source", "text_gdiplus");
 
 		ClearTranslation("syphon-input", "game_capture");

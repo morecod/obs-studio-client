@@ -1069,7 +1069,7 @@ OS_THREAD_ROUTINE recv_thread(void *data)
      addrinfo_len = sizeof(struct sockaddr_in6);
   }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
   if (!SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_TIME_CRITICAL)) {
     FTL_LOG(ftl, FTL_LOG_WARN, "Failed to set recv_thread priority to THREAD_PRIORITY_TIME_CRITICAL\n");
   }
@@ -1210,7 +1210,7 @@ OS_THREAD_ROUTINE video_send_thread(void *data)
   int transmit_level;
   struct timeval start_tv;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
   if (!SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_TIME_CRITICAL)) {
     FTL_LOG(ftl, FTL_LOG_WARN, "Failed to set recv_thread priority to THREAD_PRIORITY_TIME_CRITICAL\n");
   }
@@ -1281,7 +1281,7 @@ OS_THREAD_ROUTINE audio_send_thread(void *data)
     ftl_stream_configuration_private_t *ftl = (ftl_stream_configuration_private_t *)data;
     ftl_media_component_common_t *audio = &ftl->audio.media_component;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
     if (!SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_TIME_CRITICAL)) {
         FTL_LOG(ftl, FTL_LOG_WARN, "Failed to set recv_thread priority to THREAD_PRIORITY_TIME_CRITICAL\n");
     }

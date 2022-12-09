@@ -44,7 +44,7 @@ bool ipc_pipe_client_write(ipc_pipe_client_t *pipe, const void *data,
 			   size_t size);
 static inline bool ipc_pipe_client_valid(ipc_pipe_client_t *pipe);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include "pipe-windows.h"
 #else /* assume posix */
 #include "pipe-posix.h"

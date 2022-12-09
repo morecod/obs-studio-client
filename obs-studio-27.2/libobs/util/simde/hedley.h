@@ -1751,7 +1751,7 @@ HEDLEY_DIAGNOSTIC_POP
 #if defined(HEDLEY_IMPORT)
 #undef HEDLEY_IMPORT
 #endif
-#if defined(_WIN32) || defined(__CYGWIN__)
+#if defined(_MSC_VER) || defined(__CYGWIN__)
 #define HEDLEY_PRIVATE
 #define HEDLEY_PUBLIC __declspec(dllexport)
 #define HEDLEY_IMPORT __declspec(dllimport)

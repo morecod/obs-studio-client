@@ -488,7 +488,7 @@ EXPORT gs_texture_t *gs_texrender_get_texture(const gs_texrender_t *texrender);
 #define GS_ERROR_NOT_SUPPORTED -3
 
 struct gs_window {
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	void *hwnd;
 #elif defined(__APPLE__)
 	__unsafe_unretained id view;
@@ -869,7 +869,7 @@ EXPORT bool gs_texture_rebind_iosurface(gs_texture_t *texture, void *iosurf);
 EXPORT gs_texture_t *gs_texture_open_shared(uint32_t handle);
 EXPORT bool gs_shared_texture_available(void);
 
-#elif _WIN32
+#elif _MSC_VER
 
 EXPORT bool gs_gdi_texture_available(void);
 EXPORT bool gs_shared_texture_available(void);

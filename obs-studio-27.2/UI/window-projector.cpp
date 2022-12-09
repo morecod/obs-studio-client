@@ -170,7 +170,7 @@ static OBSSource CreateLabel(const char *name, size_t h)
 	text += name;
 	text += " ";
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	obs_data_set_string(font, "face", "Arial");
 #elif defined(__APPLE__)
 	obs_data_set_string(font, "face", "Helvetica");
@@ -184,7 +184,7 @@ static OBSSource CreateLabel(const char *name, size_t h)
 	obs_data_set_string(settings, "text", text.c_str());
 	obs_data_set_bool(settings, "outline", false);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	const char *text_source_id = "text_gdiplus";
 #else
 	const char *text_source_id = "text_ft2_source";

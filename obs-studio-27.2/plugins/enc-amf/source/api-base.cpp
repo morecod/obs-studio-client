@@ -24,7 +24,7 @@
 #include "api-host.hpp"
 #include "api-opengl.hpp"
 
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER) || defined(_WIN64)
 extern "C" {
 #include <VersionHelpers.h>
 #include <windows.h>
@@ -100,7 +100,7 @@ Plugin::API::Adapter Plugin::API::IAPI::GetAdapterByName(const std::string& name
 static std::vector<std::shared_ptr<IAPI>> s_APIInstances;
 void                                      Plugin::API::InitializeAPIs()
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (IsWindows8OrGreater()) {
 		// DirectX 11
 		try {

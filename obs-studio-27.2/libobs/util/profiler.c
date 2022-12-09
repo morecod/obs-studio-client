@@ -1046,7 +1046,7 @@ bool profiler_snapshot_dump_csv_gz(const profiler_snapshot_t *snap,
 				   const char *filename)
 {
 	gzFile gz;
-#ifdef _WIN32
+#ifdef _MSC_VER
 	wchar_t *filename_w = NULL;
 
 	os_utf8_to_wcs_ptr(filename, 0, &filename_w);
@@ -1063,7 +1063,7 @@ bool profiler_snapshot_dump_csv_gz(const profiler_snapshot_t *snap,
 
 	profiler_snapshot_dump(snap, dump_csv_gzwrite, gz);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	gzclose_w(gz);
 #else
 	gzclose(gz);

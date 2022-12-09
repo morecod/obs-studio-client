@@ -51,7 +51,7 @@
 
 #include <curl/curl.h>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <windows.h>
 #include <filesystem>
 #else
@@ -59,7 +59,7 @@
 #include <pthread.h>
 #endif
 
-#if !defined(_WIN32) && !defined(__APPLE__)
+#if !defined(_MSC_VER) && !defined(__APPLE__)
 #include <obs-nix-platform.h>
 #include <qpa/qplatformnativeinterface.h>
 #endif
@@ -365,14 +365,14 @@ static void do_log(int log_level, const char *msg, va_list args, void *param)
 	fstream &logFile = *static_cast<fstream *>(param);
 	char str[4096];
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 	va_list args2;
 	va_copy(args2, args);
 #endif
 
 	vsnprintf(str, 4095, msg, args);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (IsDebuggerPresent()) {
 		int wNum = MultiByteToWideChar(CP_UTF8, 0, str, -1, NULL, 0);
 		if (wNum > 1) {
@@ -400,7 +400,7 @@ static void do_log(int log_level, const char *msg, va_list args, void *param)
 		LogStringChunk(logFile, str, log_level);
 	}
 
-#if defined(_WIN32) && defined(OBS_DEBUGBREAK_ON_ERROR)
+#if defined(_MSC_VER) && defined(OBS_DEBUGBREAK_ON_ERROR)
 	if (log_level <= LOG_ERROR && IsDebuggerPresent())
 		__debugbreak();
 #endif
@@ -421,7 +421,7 @@ bool OBSApp::InitGlobalConfigDefaults()
 
 	config_set_default_bool(globalConfig, "General", "ConfirmOnExit", true);
 
-#if _WIN32
+#if _MSC_VER
 	config_set_default_string(globalConfig, "Video", "Renderer",
 				  "Direct3D 11");
 #else
@@ -489,7 +489,7 @@ bool OBSApp::InitGlobalConfigDefaults()
 	config_set_default_bool(globalConfig, "BasicWindow",
 				"MultiviewDrawAreas", true);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	uint32_t winver = GetWindowsVersion();
 
 	config_set_default_bool(globalConfig, "Audio", "DisableAudioDucking",
@@ -541,7 +541,7 @@ static bool MakeUserDirs()
 	if (!do_mkdir(path))
 		return false;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (GetConfigPath(path, sizeof(path), "obs-studio/crashes") <= 0)
 		return false;
 	if (!do_mkdir(path))
@@ -1176,7 +1176,7 @@ OBSApp::OBSApp(int &argc, char **argv, profiler_name_store_t *store)
 
 OBSApp::~OBSApp()
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	bool disableAudioDucking =
 		config_get_bool(globalConfig, "Audio", "DisableAudioDucking");
 	if (disableAudioDucking)
@@ -1320,7 +1320,7 @@ void OBSApp::AppInit()
 				  Str("Untitled"));
 	}
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	bool disableAudioDucking =
 		config_get_bool(globalConfig, "Audio", "DisableAudioDucking");
 	if (disableAudioDucking)
@@ -1419,7 +1419,7 @@ bool OBSApp::OBSInit()
 
 	qRegisterMetaType<VoidFunc>();
 
-#if !defined(_WIN32) && !defined(__APPLE__)
+#if !defined(_MSC_VER) && !defined(__APPLE__)
 	obs_set_nix_platform(OBS_NIX_PLATFORM_X11_GLX);
 	if (QApplication::platformName() == "xcb" && getenv("OBS_USE_EGL")) {
 		obs_set_nix_platform(OBS_NIX_PLATFORM_X11_EGL);
@@ -1447,7 +1447,7 @@ bool OBSApp::OBSInit()
 
 	obs_set_ui_task_handler(ui_task_handler);
 
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	bool browserHWAccel =
 		config_get_bool(globalConfig, "General", "BrowserHWAccel");
 
@@ -1461,7 +1461,7 @@ bool OBSApp::OBSInit()
 	blog(LOG_INFO, "Browser Hardware Acceleration: %s",
 	     browserHWAccel ? "true" : "false");
 #endif
-#ifdef _WIN32
+#ifdef _MSC_VER
 	bool hideFromCapture = config_get_bool(globalConfig, "BasicWindow",
 					       "HideOBSWindowsFromCapture");
 	blog(LOG_INFO, "Hide OBS windows from screen capture: %s",
@@ -1502,7 +1502,7 @@ string OBSApp::GetVersionString() const
 #endif
 	ver << " (";
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (sizeof(void *) == 8)
 		ver << "64-bit, ";
 	else
@@ -1540,7 +1540,7 @@ bool OBSApp::IsMissingFilesCheckDisabled()
 #ifdef __APPLE__
 #define INPUT_AUDIO_SOURCE "coreaudio_input_capture"
 #define OUTPUT_AUDIO_SOURCE "coreaudio_output_capture"
-#elif _WIN32
+#elif _MSC_VER
 #define INPUT_AUDIO_SOURCE "wasapi_input_capture"
 #define OUTPUT_AUDIO_SOURCE "wasapi_output_capture"
 #else
@@ -1942,7 +1942,7 @@ static void create_log_file(fstream &logFile)
 	stringstream dst;
 
 	get_last_log(false, "obs-studio/logs", lastLogFile);
-#ifdef _WIN32
+#ifdef _MSC_VER
 	get_last_log(true, "obs-studio/crashes", lastCrashLogFile);
 #endif
 
@@ -1951,7 +1951,7 @@ static void create_log_file(fstream &logFile)
 
 	BPtr<char> path(GetConfigPathPtr(dst.str().c_str()));
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	BPtr<wchar_t> wpath;
 	os_utf8_to_wcs_ptr(path, 0, &wpath);
 	logFile.open(wpath, ios_base::in | ios_base::out | ios_base::trunc);
@@ -2058,7 +2058,7 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 					      ? Qt::AA_DisableHighDpiScaling
 					      : Qt::AA_EnableHighDpiScaling);
 #endif
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)) && defined(_WIN32)
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)) && defined(_MSC_VER)
 	QGuiApplication::setHighDpiScaleFactorRoundingPolicy(
 		Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 #endif
@@ -2069,7 +2069,7 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 	InstallNSApplicationSubclass();
 #endif
 
-#if !defined(_WIN32) && !defined(__APPLE__) && defined(USE_XDG) && \
+#if !defined(_MSC_VER) && !defined(__APPLE__) && defined(USE_XDG) && \
 	defined(ENABLE_WAYLAND)
 	/* NOTE: Qt doesn't use the Wayland platform on GNOME, so we have to
 	 * force it using the QT_QPA_PLATFORM env var. It's still possible to
@@ -2099,7 +2099,7 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 		bool cancel_launch = false;
 		bool already_running = false;
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 		RunOnceMutex rom = GetRunOnceMutex(already_running);
 #elif defined(__APPLE__)
 		CheckAppWithSameBundleID(already_running);
@@ -2152,7 +2152,7 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 		/* --------------------------------------- */
 	run:
 
-#if !defined(_WIN32) && !defined(__APPLE__) && !defined(__FreeBSD__)
+#if !defined(_MSC_VER) && !defined(__APPLE__) && !defined(__FreeBSD__)
 		// Mounted by termina during chromeOS linux container startup
 		// https://chromium.googlesource.com/chromiumos/overlays/board-overlays/+/master/project-termina/chromeos-base/termina-lxd-scripts/files/lxd_setup.sh
 		os_dir_t *crosDir = os_opendir("/opt/google/cros-containers");
@@ -2179,7 +2179,7 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 		     rosettaTranslated ? "true" : "false");
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 		if (IsRunningOnWine()) {
 			QMessageBox mb(QMessageBox::Question,
 				       QTStr("Wine.Title"), QTStr("Wine.Text"));
@@ -2227,7 +2227,7 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 
 #define MAX_CRASH_REPORT_SIZE (150 * 1024)
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 
 #define CRASH_MESSAGE                                                      \
 	"Woops, OBS has crashed!\n\nWould you like to copy the crash log " \
@@ -2251,7 +2251,7 @@ static void main_crash_handler(const char *format, va_list args, void *param)
 
 	fstream file;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	BPtr<wchar_t> wpath;
 	os_utf8_to_wcs_ptr(path, 0, &wpath);
 	file.open(wpath, ios_base::in | ios_base::out | ios_base::trunc |
@@ -2265,7 +2265,7 @@ static void main_crash_handler(const char *format, va_list args, void *param)
 
 	string pathString(path.Get());
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	std::replace(pathString.begin(), pathString.end(), '/', '\\');
 #endif
 
@@ -2494,7 +2494,7 @@ static inline bool arg_is(const char *arg, const char *long_form,
 	       (short_form && strcmp(arg, short_form) == 0);
 }
 
-#if !defined(_WIN32) && !defined(__APPLE__)
+#if !defined(_MSC_VER) && !defined(__APPLE__)
 #define IS_UNIX 1
 #endif
 
@@ -2732,9 +2732,13 @@ void ctrlc_handler(int s)
 	main->close();
 }
 
+#if defined(_MSC_VER)
+#pragma comment(linker, "/subsystem:windows /entry:mainCRTStartup")
+#endif
+
 int main(int argc, char *argv[])
 {
-#ifndef _WIN32
+#ifndef _MSC_VER
 	signal(SIGPIPE, SIG_IGN);
 
 	struct sigaction sig_handler;
@@ -2757,7 +2761,7 @@ int main(int argc, char *argv[])
 	}
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	obs_init_win32_crash_handler();
 	SetErrorMode(SEM_FAILCRITICALERRORS);
 	load_debug_privilege();
@@ -2862,7 +2866,7 @@ int main(int argc, char *argv[])
 				"--disable-missing-files-check: Disable the missing files dialog which can appear on startup.\n\n"
 				"--disable-high-dpi-scaling: Disable automatic high-DPI scaling\n\n";
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 			MessageBoxA(NULL, help.c_str(), "Help",
 				    MB_OK | MB_ICONASTERISK);
 #else
@@ -2909,7 +2913,7 @@ int main(int argc, char *argv[])
 	curl_global_init(CURL_GLOBAL_ALL);
 	int ret = run_program(logFile, argc, argv);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (hRtwq) {
 		typedef HRESULT(STDAPICALLTYPE * PFN_RtwqShutdown)();
 		PFN_RtwqShutdown func =

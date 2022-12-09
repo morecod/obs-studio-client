@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #  ifdef FTL_STATIC_COMPILE
 #    define FTL_API
 #  else

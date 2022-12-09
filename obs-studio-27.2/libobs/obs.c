@@ -101,7 +101,7 @@ static bool obs_init_gpu_conversion(struct obs_video_info *ovi)
 	else
 		blog(LOG_INFO, "NV12 texture support not available");
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (video->using_nv12_tex) {
 		gs_texture_create_nv12(&video->convert_textures[0],
 				       &video->convert_textures[1],
@@ -144,7 +144,7 @@ static bool obs_init_gpu_conversion(struct obs_video_info *ovi)
 		default:
 			break;
 		}
-#ifdef _WIN32
+#ifdef _MSC_VER
 	}
 #endif
 
@@ -206,7 +206,7 @@ static bool obs_init_textures(struct obs_video_info *ovi)
 	struct obs_core_video *video = &obs->video;
 
 	for (size_t i = 0; i < NUM_TEXTURES; i++) {
-#ifdef _WIN32
+#ifdef _MSC_VER
 		if (video->using_nv12_tex) {
 			video->copy_surfaces[i][0] =
 				gs_stagesurface_create_nv12(ovi->output_width,
@@ -227,7 +227,7 @@ static bool obs_init_textures(struct obs_video_info *ovi)
 				if (!video->copy_surfaces[i][0])
 					return false;
 			}
-#ifdef _WIN32
+#ifdef _MSC_VER
 		}
 #endif
 	}
@@ -886,7 +886,7 @@ static bool obs_init(const char *locale, const char *module_config_path,
 	return true;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 extern bool initialize_com(void);
 extern void uninitialize_com(void);
 static bool com_initialized = false;
@@ -948,7 +948,7 @@ bool obs_startup(const char *locale, const char *module_config_path,
 		return false;
 	}
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	com_initialized = initialize_com();
 #endif
 
@@ -1069,7 +1069,7 @@ void obs_shutdown(void)
 	obs = NULL;
 	bfree(cmdline_args.argv);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (com_initialized)
 		uninitialize_com();
 #endif

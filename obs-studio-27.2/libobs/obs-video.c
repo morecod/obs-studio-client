@@ -24,7 +24,7 @@
 #include "media-io/format-conversion.h"
 #include "media-io/video-frame.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define WIN32_MEAN_AND_LEAN
 #include <windows.h>
 #endif
@@ -385,7 +385,7 @@ static inline void stage_output_texture(struct obs_core_video *video,
 	profile_end(stage_output_texture_name);
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 static inline bool queue_frame(struct obs_core_video *video, bool raw_active,
 			       struct obs_vframe_info *vframe_info)
 {
@@ -491,7 +491,7 @@ static inline void render_video(struct obs_core_video *video, bool raw_active,
 	if (raw_active || gpu_active) {
 		gs_texture_t *texture = render_output_texture(video);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 		if (gpu_active)
 			gs_flush();
 #endif
@@ -499,7 +499,7 @@ static inline void render_video(struct obs_core_video *video, bool raw_active,
 		if (video->gpu_conversion)
 			render_convert_texture(video, texture);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 		if (gpu_active) {
 			gs_flush();
 			output_gpu_encoders(video, raw_active);
@@ -818,7 +818,7 @@ static void clear_raw_frame_data(void)
 	circlebuf_free(&video->vframe_info_buffer);
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 static void clear_gpu_frame_data(void)
 {
 	struct obs_core_video *video = &obs->video;
@@ -845,7 +845,7 @@ static void execute_graphics_tasks(void)
 	}
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 
 struct winrt_exports {
 	void (*winrt_initialize)();
@@ -924,7 +924,7 @@ static void uninit_winrt_state(struct winrt_state *winrt)
 	}
 }
 
-#endif // #ifdef _WIN32
+#endif // #ifdef _MSC_VER
 
 static const char *tick_sources_name = "tick_sources";
 static const char *render_displays_name = "render_displays";
@@ -937,7 +937,7 @@ bool obs_graphics_thread_loop(struct obs_graphics_context *context)
 	uint64_t frame_start = os_gettime_ns();
 	uint64_t frame_time_ns;
 	bool raw_active = os_atomic_load_long(&obs->video.raw_active) > 0;
-#ifdef _WIN32
+#ifdef _MSC_VER
 	const bool gpu_active =
 		os_atomic_load_long(&obs->video.gpu_encoder_active) > 0;
 	const bool active = raw_active || gpu_active;
@@ -950,7 +950,7 @@ bool obs_graphics_thread_loop(struct obs_graphics_context *context)
 		clear_base_frame_data();
 	if (!context->raw_was_active && raw_active)
 		clear_raw_frame_data();
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (!context->gpu_was_active && gpu_active)
 		clear_gpu_frame_data();
 
@@ -970,7 +970,7 @@ bool obs_graphics_thread_loop(struct obs_graphics_context *context)
 		tick_sources(obs->video.video_time, context->last_time);
 	profile_end(tick_sources_name);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	MSG msg;
 	while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 		TranslateMessage(&msg);
@@ -1019,10 +1019,10 @@ bool obs_graphics_thread_loop(struct obs_graphics_context *context)
 
 void *obs_graphics_thread(void *param)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	struct winrt_state winrt;
 	init_winrt_state(&winrt);
-#endif // #ifdef _WIN32
+#endif // #ifdef _MSC_VER
 
 	is_graphics_thread = true;
 
@@ -1046,7 +1046,7 @@ void *obs_graphics_thread(void *param)
 	context.fps_total_ns = 0;
 	context.fps_total_frames = 0;
 	context.last_time = 0;
-#ifdef _WIN32
+#ifdef _MSC_VER
 	context.gpu_was_active = false;
 #endif
 	context.raw_was_active = false;
@@ -1060,7 +1060,7 @@ void *obs_graphics_thread(void *param)
 #endif
 		;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	uninit_winrt_state(&winrt);
 #endif
 

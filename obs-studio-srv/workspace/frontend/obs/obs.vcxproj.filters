@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ui">
+      <UniqueIdentifier>{a8bc10a7-75b3-418c-afbb-ac418058a477}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win-update">
+      <UniqueIdentifier>{e4b9b31b-d5b9-4acc-8c56-1577e3501301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="deps">
+      <UniqueIdentifier>{18e3d374-2595-45d2-a267-17f2d049aebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="deps\json11">
+      <UniqueIdentifier>{1dad1b6a-c4b2-40eb-88e0-170610ae7f75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="deps\libff">
+      <UniqueIdentifier>{6c06f1cb-cce6-483f-8449-7428fae8687f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui\inc">
+      <UniqueIdentifier>{8231b636-2bda-486f-85b1-2a2756096377}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui\src">
+      <UniqueIdentifier>{b8986551-260e-4505-902d-62c393edb6cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="importers">
+      <UniqueIdentifier>{2ca89c6e-5b18-4692-b8c1-b4cdf5011c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="forms">
+      <UniqueIdentifier>{5e7ef437-2db9-49a5-8ce2-177a36330cee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="forms\source-toolbar">
+      <UniqueIdentifier>{55a7e0f1-a31b-4d17-9219-35d5ddad35d4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\win-update\update-window.cpp">
+      <Filter>win-update</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update.cpp">
+      <Filter>win-update</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update-helpers.cpp">
+      <Filter>win-update</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\deps\json11\json11.cpp">
+      <Filter>deps\json11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\deps\libff\libff\ff-util.c">
+      <Filter>deps\libff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\adv-audio-control.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\api-interface.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\audio-encoders.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\auth-base.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\auth-listener.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\auth-oauth.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\combobox-ignorewheel.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\context-bar-controls.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\crash-report.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\double-slider.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\focus-list.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\horizontal-scroll-area.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\hotkey-edit.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\item-widget-helpers.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\locked-checkbox.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\log-viewer.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\media-controls.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\media-slider.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\menu-button.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\obf.c">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\obs-app.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\obs-proxy-style.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\properties-view.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\qt-display.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\qt-wrappers.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\record-button.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\remote-text.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\scene-tree.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\slider-absoluteset-style.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\slider-ignorewheel.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\source-label.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\source-tree.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\spinbox-ignorewheel.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\ui-validation.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\undo-stack-obs.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\url-push-button.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\vertical-scroll-area.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\visibility-checkbox.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\visibility-item-widget.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\volume-control.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-about.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-adv-audio.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-auto-config.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-filters.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-interaction.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-outputs.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-preview.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-properties.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-settings.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-settings-stream.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-source-select.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-stats.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-transform.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-dock.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-importer.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-log-reply.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-missing-files.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-namedialog.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-projector.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-remux.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-status-bar.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-profiles.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-scene-collections.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-screenshot.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-transitions.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-icons.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-browser.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-dropfiles.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-auto-config-test.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\platform-windows.cpp">
+      <Filter>ui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\classic.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\importers.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\sl.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\studio.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\xsplit.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\frontend\obs\qt_moc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\win-update\update-window.hpp">
+      <Filter>win-update</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update.hpp">
+      <Filter>win-update</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update-helpers.hpp">
+      <Filter>win-update</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\deps\json11\json11.hpp">
+      <Filter>deps\json11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\adv-audio-control.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\audio-encoders.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\auth-base.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\auth-listener.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\auth-oauth.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\clickable-label.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\balance-slider.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\combobox-ignorewheel.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\context-bar-controls.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\crash-report.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\display-helpers.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\double-slider.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\expand-checkbox.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\focus-list.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\horizontal-scroll-area.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\hotkey-edit.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\item-widget-helpers.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\locked-checkbox.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\log-viewer.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\media-controls.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\media-slider.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\menu-button.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\mute-checkbox.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\obf.h">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\obs-app.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\obs-proxy-style.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\properties-view.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\properties-view.moc.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\qt-display.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\qt-wrappers.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\record-button.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\remote-text.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\scene-tree.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\screenshot-obj.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\slider-absoluteset-style.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\slider-ignorewheel.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\source-label.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\source-tree.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\spinbox-ignorewheel.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\ui-validation.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\undo-stack-obs.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\url-push-button.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\vertical-scroll-area.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\visibility-checkbox.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\visibility-item-widget.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\volume-control.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-about.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-adv-audio.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-auto-config.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-filters.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-interaction.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-outputs.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-preview.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-properties.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-settings.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-source-select.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-stats.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-transform.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-dock.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-importer.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-log-reply.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-main.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-missing-files.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-namedialog.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-projector.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-remux.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-status-bar.hpp">
+      <Filter>ui\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\platform.hpp">
+      <Filter>ui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\importers\importers.hpp">
+      <Filter>importers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\frontend\obs\ui-config.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigFinishPage.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigStartPage.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigStreamPage.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigTestPage.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigVideoPage.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\ColorSelect.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\obs.qrc">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSAbout.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasic.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicFilters.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicInteraction.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicSettings.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicSourceSelect.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicTransform.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSExtraBrowsers.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSImporter.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSLogReply.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSMissingFiles.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSRemux.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSUpdate.ui">
+      <Filter>forms</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\browser-source-toolbar.ui">
+      <Filter>forms\source-toolbar</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\color-source-toolbar.ui">
+      <Filter>forms\source-toolbar</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\device-select-toolbar.ui">
+      <Filter>forms\source-toolbar</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\game-capture-toolbar.ui">
+      <Filter>forms\source-toolbar</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\image-source-toolbar.ui">
+      <Filter>forms\source-toolbar</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\media-controls.ui">
+      <Filter>forms\source-toolbar</Filter>
+    </None>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui">
+      <Filter>forms\source-toolbar</Filter>
+    </None>
+  </ItemGroup>
+</Project>

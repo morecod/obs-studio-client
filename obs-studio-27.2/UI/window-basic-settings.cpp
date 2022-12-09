@@ -262,7 +262,7 @@ static CodecDesc GetDefaultCodecDesc(const ff_format_desc *formatDesc,
 			 id);
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 void OBSBasicSettings::ToggleDisableAero(bool checked)
 {
 	SetAeroEnabled(!checked);
@@ -534,10 +534,10 @@ OBSBasicSettings::OBSBasicSettings(QWidget *parent)
 	HookWidget(ui->resetOSXVSync,        CHECK_CHANGED,  ADV_CHANGED);
 	if (obs_audio_monitoring_available())
 		HookWidget(ui->monitoringDevice,     COMBO_CHANGED,  ADV_CHANGED);
-#ifdef _WIN32
+#ifdef _MSC_VER
 	HookWidget(ui->disableAudioDucking,  CHECK_CHANGED,  ADV_CHANGED);
 #endif
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	HookWidget(ui->browserHWAccel,       CHECK_CHANGED,  ADV_RESTART);
 #endif
 	HookWidget(ui->filenameFormatting,   EDIT_CHANGED,   ADV_CHANGED);
@@ -576,7 +576,7 @@ OBSBasicSettings::OBSBasicSettings(QWidget *parent)
 	ui->advOutFFVBitrate->setSuffix(" Kbps");
 	ui->advOutFFABitrate->setSuffix(" Kbps");
 
-#if !defined(_WIN32) && !defined(__APPLE__)
+#if !defined(_MSC_VER) && !defined(__APPLE__)
 	delete ui->enableAutoUpdates;
 	ui->enableAutoUpdates = nullptr;
 #endif
@@ -587,7 +587,7 @@ OBSBasicSettings::OBSBasicSettings(QWidget *parent)
 		ui->audioAdvGroupBox = nullptr;
 	}
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	uint32_t winVer = GetWindowsVersion();
 	if (winVer > 0 && winVer < 0x602) {
 		// Older than Windows 8
@@ -1226,7 +1226,7 @@ void OBSBasicSettings::LoadGeneralSettings()
 	LoadLanguageList();
 	LoadThemeList();
 
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	bool enableAutoUpdates = config_get_bool(GetGlobalConfig(), "General",
 						 "EnableAutoUpdates");
 	ui->enableAutoUpdates->setChecked(enableAutoUpdates);
@@ -1235,7 +1235,7 @@ void OBSBasicSettings::LoadGeneralSettings()
 						  "OpenStatsOnStartup");
 	ui->openStatsOnStartup->setChecked(openStatsOnStartup);
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	if (ui->hideOBSFromCapture) {
 		bool hideWindowFromCapture =
 			config_get_bool(GetGlobalConfig(), "BasicWindow",
@@ -1402,7 +1402,7 @@ void OBSBasicSettings::LoadGeneralSettings()
 
 void OBSBasicSettings::LoadRendererList()
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	const char *renderer =
 		config_get_string(GetGlobalConfig(), "Video", "Renderer");
 
@@ -1683,7 +1683,7 @@ void OBSBasicSettings::LoadVideoSettings()
 	LoadFPSData();
 	LoadDownscaleFilters();
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (toggleAero) {
 		bool disableAero =
 			config_get_bool(main->Config(), "Video", "DisableAero");
@@ -2583,7 +2583,7 @@ void OBSBasicSettings::LoadAdvancedSettings()
 	ui->disableOSXVSync->setChecked(disableOSXVSync);
 	ui->resetOSXVSync->setChecked(resetOSXVSync);
 	ui->resetOSXVSync->setEnabled(disableOSXVSync);
-#elif _WIN32
+#elif _MSC_VER
 	bool disableAudioDucking = config_get_bool(
 		App()->GlobalConfig(), "Audio", "DisableAudioDucking");
 	ui->disableAudioDucking->setChecked(disableAudioDucking);
@@ -2605,7 +2605,7 @@ void OBSBasicSettings::LoadAdvancedSettings()
 	ui->enableLowLatencyMode->setToolTip(
 		QTStr("Basic.Settings.Advanced.Network.TCPPacing.Tooltip"));
 #endif
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	bool browserHWAccel = config_get_bool(App()->GlobalConfig(), "General",
 					      "BrowserHWAccel");
 	ui->browserHWAccel->setChecked(browserHWAccel);
@@ -2990,13 +2990,13 @@ void OBSBasicSettings::SaveGeneralSettings()
 		App()->SetTheme(themeData.toUtf8().constData());
 	}
 
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	if (WidgetChanged(ui->enableAutoUpdates))
 		config_set_bool(GetGlobalConfig(), "General",
 				"EnableAutoUpdates",
 				ui->enableAutoUpdates->isChecked());
 #endif
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (ui->hideOBSFromCapture && WidgetChanged(ui->hideOBSFromCapture)) {
 		bool hide_window = ui->hideOBSFromCapture->isChecked();
 		config_set_bool(GetGlobalConfig(), "BasicWindow",
@@ -3083,7 +3083,7 @@ void OBSBasicSettings::SaveGeneralSettings()
 		config_set_bool(GetGlobalConfig(), "BasicWindow",
 				"ProjectorAlwaysOnTop",
 				ui->projectorAlwaysOnTop->isChecked());
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 		main->UpdateProjectorAlwaysOnTop(
 			ui->projectorAlwaysOnTop->isChecked());
 #else
@@ -3216,7 +3216,7 @@ void OBSBasicSettings::SaveVideoSettings()
 	SaveSpinBox(ui->fpsDenominator, "Video", "FPSDen");
 	SaveComboData(ui->downscaleFilter, "Video", "ScaleType");
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (toggleAero) {
 		SaveCheckBox(toggleAero, "Video", "DisableAero");
 		aeroWasDisabled = toggleAero->isChecked();
@@ -3229,7 +3229,7 @@ void OBSBasicSettings::SaveAdvancedSettings()
 	QString lastMonitoringDevice = config_get_string(
 		main->Config(), "Audio", "MonitoringDeviceId");
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (WidgetChanged(ui->renderer))
 		config_set_string(App()->GlobalConfig(), "Video", "Renderer",
 				  QT_TO_UTF8(ui->renderer->currentText()));
@@ -3244,7 +3244,7 @@ void OBSBasicSettings::SaveAdvancedSettings()
 	SaveCheckBox(ui->enableNewSocketLoop, "Output", "NewSocketLoopEnable");
 	SaveCheckBox(ui->enableLowLatencyMode, "Output", "LowLatencyEnable");
 #endif
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	bool browserHWAccel = ui->browserHWAccel->isChecked();
 	config_set_bool(App()->GlobalConfig(), "General", "BrowserHWAccel",
 			browserHWAccel);
@@ -3279,7 +3279,7 @@ void OBSBasicSettings::SaveAdvancedSettings()
 			      "MonitoringDeviceId");
 	}
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (WidgetChanged(ui->disableAudioDucking)) {
 		bool disable = ui->disableAudioDucking->isChecked();
 		config_set_bool(App()->GlobalConfig(), "Audio",
@@ -3774,7 +3774,7 @@ bool OBSBasicSettings::QueryChanges()
 			App()->SetTheme(savedTheme);
 
 		LoadSettings(true);
-#ifdef _WIN32
+#ifdef _MSC_VER
 		if (toggleAero)
 			SetAeroEnabled(!aeroWasDisabled);
 #endif
@@ -3837,7 +3837,7 @@ void OBSBasicSettings::on_buttonBox_clicked(QAbstractButton *button)
 		if (val == QDialogButtonBox::RejectRole) {
 			if (savedTheme != App()->GetTheme())
 				App()->SetTheme(savedTheme);
-#ifdef _WIN32
+#ifdef _MSC_VER
 			if (toggleAero)
 				SetAeroEnabled(!aeroWasDisabled);
 #endif
@@ -4073,7 +4073,7 @@ void OBSBasicSettings::on_filenameFormatting_textEdited(const QString &text)
 
 #ifdef __APPLE__
 	safeStr.replace(QRegularExpression("[:]"), "");
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
 	safeStr.replace(QRegularExpression("[<>:\"\\|\\?\\*]"), "");
 #else
 	// TODO: Add filtering for other platforms

@@ -151,7 +151,7 @@ static void *gpu_encode_thread(void *unused)
 
 bool init_gpu_encoding(struct obs_core_video *video)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	struct obs_video_info *ovi = &video->ovi;
 
 	video->gpu_encode_stop = false;

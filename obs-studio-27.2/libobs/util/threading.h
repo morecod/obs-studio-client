@@ -37,7 +37,7 @@
 extern "C" {
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include "threading-windows.h"
 #else
 #include "threading-posix.h"

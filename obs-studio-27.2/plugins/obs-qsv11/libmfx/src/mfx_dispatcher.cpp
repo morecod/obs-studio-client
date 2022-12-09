@@ -336,7 +336,7 @@ MFX_DISP_HANDLE_EX::MFX_DISP_HANDLE_EX(const mfxVersion requiredVersion)
 {}
 
 
-#if (defined(_WIN64) || defined(_WIN32)) && (MFX_VERSION >= 1031)
+#if (defined(_WIN64) || defined(_MSC_VER)) && (MFX_VERSION >= 1031)
 static mfxStatus InitDummySession(mfxU32 adapter_n, MFXVideoSession & dummy_session)
 {
     mfxInitParam initPar;
@@ -658,4 +658,4 @@ mfxStatus MFXQueryAdaptersNumber(mfxU32* num_adapters)
     return MFX_ERR_NONE;
 }
 
-#endif // (defined(_WIN64) || defined(_WIN32)) && (MFX_VERSION >= 1031)
+#endif // (defined(_WIN64) || defined(_MSC_VER)) && (MFX_VERSION >= 1031)

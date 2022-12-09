@@ -282,7 +282,7 @@ struct gs_exports {
 					    void *iosurf);
 	bool (*device_shared_texture_available)(void);
 
-#elif _WIN32
+#elif _MSC_VER
 	bool (*device_gdi_texture_available)(void);
 	bool (*device_shared_texture_available)(void);
 

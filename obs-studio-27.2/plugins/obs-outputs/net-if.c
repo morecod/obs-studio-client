@@ -53,7 +53,7 @@ static void netif_convert_to_string(char *dest,
 	int family = byte_address->ss_family;
 	char temp_char[INET6_ADDRSTRLEN] = {0};
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 	if (family == AF_INET)
 		inet_ntop(family,
 			  &(((struct sockaddr_in *)byte_address)->sin_addr),
@@ -109,7 +109,7 @@ bool netif_str_to_addr(struct sockaddr_storage *out, int *addr_len,
 	out->ss_family = ipv6 ? AF_INET6 : AF_INET;
 	*addr_len = sizeof(*out);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	int ret = WSAStringToAddressA((LPSTR)addr, out->ss_family, NULL,
 				      (LPSOCKADDR)out, addr_len);
 	if (ret == SOCKET_ERROR)
@@ -127,7 +127,7 @@ bool netif_str_to_addr(struct sockaddr_storage *out, int *addr_len,
 #endif
 }
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 static inline bool is_loopback(struct ifaddrs *ifa)
 {
 	const char *n = ifa->ifa_name;
@@ -263,7 +263,7 @@ void netif_get_addrs(struct netif_saddr_data *ifaddrs)
 {
 	da_init(ifaddrs->addrs);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	netif_get_addrs_win32(ifaddrs);
 #else
 	netif_get_addrs_nix(ifaddrs);

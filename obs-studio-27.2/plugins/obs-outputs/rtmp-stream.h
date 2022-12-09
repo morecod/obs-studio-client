@@ -10,7 +10,7 @@
 #include "flv-mux.h"
 #include "net-if.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <Iphlpapi.h>
 #else
 #include <sys/ioctl.h>
@@ -131,6 +131,6 @@ struct rtmp_stream {
 	os_event_t *send_thread_signaled_exit;
 };
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 void *socket_thread_windows(void *data);
 #endif

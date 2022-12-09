@@ -86,7 +86,7 @@ extern "C" {
 	}
 
 #ifndef __FUNCTION_NAME__
-#if defined(_WIN32) || defined(_WIN64) //WINDOWS
+#if defined(_MSC_VER) || defined(_WIN64) //WINDOWS
 #define __FUNCTION_NAME__ __FUNCTION__
 #else //*NIX
 #define __FUNCTION_NAME__ __func__

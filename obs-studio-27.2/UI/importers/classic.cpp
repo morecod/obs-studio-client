@@ -557,7 +557,7 @@ OBSImporterFiles ClassicImporter::FindFiles()
 {
 	OBSImporterFiles res;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	char dst[512];
 	int found = os_get_config_path(dst, 512, "OBS\\sceneCollection\\");
 	if (found == -1)

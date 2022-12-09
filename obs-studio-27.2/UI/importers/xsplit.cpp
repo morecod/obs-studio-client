@@ -514,7 +514,7 @@ bool XSplitImporter::Check(const string &path)
 OBSImporterFiles XSplitImporter::FindFiles()
 {
 	OBSImporterFiles res;
-#ifdef _WIN32
+#ifdef _MSC_VER
 	char dst[512];
 	int found = os_get_program_data_path(
 		dst, 512, "SplitMediaLabs\\XSplit\\Presentation2.0\\");

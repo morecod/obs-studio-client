@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 #include <combaseapi.h>
 #include <DeckLinkAPI.h>
 #include "win/decklink-sdk/DeckLinkAPIVersion.h"

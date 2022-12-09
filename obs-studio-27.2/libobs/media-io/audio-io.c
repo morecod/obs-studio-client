@@ -28,7 +28,7 @@
 #include "audio-io.h"
 #include "audio-resampler.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <avrt.h>
@@ -203,7 +203,7 @@ static void input_and_output(struct audio_output *audio, uint64_t audio_time,
 
 static void *audio_thread(void *param)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	DWORD unused = 0;
 	const HANDLE handle = AvSetMmThreadCharacteristics(L"Audio", &unused);
 #endif
@@ -246,7 +246,7 @@ static void *audio_thread(void *param)
 		profile_reenable_thread();
 	}
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	if (handle)
 		AvRevertMmThreadCharacteristics(handle);
 #endif

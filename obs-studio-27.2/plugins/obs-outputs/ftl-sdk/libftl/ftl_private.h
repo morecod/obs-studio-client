@@ -34,7 +34,7 @@
 #include <string.h>
 #include "gettimeofday/gettimeofday.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <WS2tcpip.h>
 #include <WinSock2.h>
 #else
@@ -125,7 +125,7 @@
 
 #define MAX_STAT_SIZE 5
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 #define strncpy_s(dst, dstsz, src, cnt) strncpy(dst, src, cnt)
 #define sprintf_s(buf, bufsz, fmt, ...) sprintf(buf, fmt, __VA_ARGS__)
 #define strcpy_s(dst, dstsz, src) strcpy(dst, src)
@@ -159,7 +159,7 @@ typedef enum {
   FTL_DISABLE_TX_SENDER_REPORT = 0x2000
 }ftl_state_t;
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 typedef int SOCKET;
 typedef bool BOOL;
 #define TRUE true

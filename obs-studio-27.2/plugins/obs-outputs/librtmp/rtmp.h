@@ -34,7 +34,7 @@
 #include <errno.h>
 #include <stdint.h>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #ifdef _MSC_VER
 #pragma warning(disable:4996) //depricated warnings
 #pragma warning(disable:4244) //64bit defensive mechanism, fixed the ones that mattered

@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c27a10a8-9271-4c2b-b103-751fcef54462}</ProjectGuid>
+    <RootNamespace>obs</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\frontend\$(ProjectName)\</IntDir>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\frontend\$(ProjectName)\</IntDir>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\frontend\$(ProjectName)\</IntDir>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)build.bin\$(Configuration)_$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)build.obj\$(Configuration)_$(PlatformShortName)\frontend\$(ProjectName)\</IntDir>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;DL_OPENGL="libobs-opengl.dll";DL_D3D9="";DL_D3D11="libobs-d3d11.dll";_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Network.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Xml.lib;Qt5Svg.lib;Qt5WinExtras.lib;qtmain.lib;libcurl.lib;avcodec.lib;avutil.lib;avformat.lib;crypt32.lib;$(OutDir)w32-pthreads.lib;$(OutDir)blake2.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)frontend-tools.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+    <PreBuildEvent>
+      <Message>Automatic MOC</Message>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\adv-audio-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_adv-audio-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-base.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-base.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-listener.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-listener.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-oauth.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-oauth.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\balance-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_balance-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\clickable-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_clickable-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\context-bar-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_context-bar-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\crash-report.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_crash-report.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\expand-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_expand-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\focus-list.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_focus-list.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\horizontal-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_horizontal-scroll-area.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\hotkey-edit.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_hotkey-edit.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\locked-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_locked-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\log-viewer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_log-viewer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\menu-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_menu-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\mute-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_mute-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\obs-app.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_obs-app.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\qt-display.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_qt-display.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\record-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_record-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\remote-text.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_remote-text.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\scene-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_scene-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\screenshot-obj.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_screenshot-obj.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\ui-validation.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_ui-validation.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\undo-stack-obs.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_undo-stack-obs.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\url-push-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_url-push-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-item-widget.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-item-widget.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\volume-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_volume-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-about.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-about.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-adv-audio.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-adv-audio.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-auto-config.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-auto-config.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-filters.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-filters.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-interaction.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-interaction.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-preview.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-preview.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-properties.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-properties.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-settings.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-settings.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-source-select.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-source-select.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-stats.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-stats.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-status-bar.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-status-bar.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-transform.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-transform.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-dock.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-dock.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-importer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-importer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-log-reply.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-log-reply.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-missing-files.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-missing-files.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-namedialog.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-namedialog.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-projector.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-projector.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-remux.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-remux.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\update-window.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_update-window.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\win-update.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_win-update.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\combobox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_combobox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\double-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_double-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.moc.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.moc.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\slider-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_slider-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\spinbox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_spinbox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\vertical-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_vertical-scroll-area.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigFinishPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigFinishPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStartPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStartPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStreamPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStreamPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigTestPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigTestPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigVideoPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigVideoPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\ColorSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_ColorSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSAbout.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSAbout.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasic.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasic.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicFilters.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicFilters.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicInteraction.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicInteraction.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSettings.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSettings.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSourceSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSourceSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicTransform.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicTransform.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSExtraBrowsers.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSExtraBrowsers.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSImporter.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSImporter.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSLogReply.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSLogReply.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSMissingFiles.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSMissingFiles.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSRemux.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSRemux.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSUpdate.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSUpdate.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\browser-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_browser-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\color-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_color-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\device-select-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_device-select-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\game-capture-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_game-capture-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\image-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_image-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\media-controls.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_media-controls.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
+%rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;DL_OPENGL="libobs-opengl.dll";DL_D3D9="";DL_D3D11="libobs-d3d11.dll";_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Full</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Network.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Xml.lib;Qt5Svg.lib;Qt5WinExtras.lib;qtmain.lib;libcurl.lib;avcodec.lib;avutil.lib;avformat.lib;crypt32.lib;$(OutDir)w32-pthreads.lib;$(OutDir)blake2.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)frontend-tools.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+    <PreBuildEvent>
+      <Message>Automatic MOC</Message>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\adv-audio-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_adv-audio-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-base.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-base.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-listener.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-listener.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-oauth.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-oauth.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\balance-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_balance-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\clickable-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_clickable-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\context-bar-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_context-bar-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\crash-report.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_crash-report.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\expand-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_expand-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\focus-list.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_focus-list.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\horizontal-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_horizontal-scroll-area.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\hotkey-edit.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_hotkey-edit.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\locked-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_locked-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\log-viewer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_log-viewer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\menu-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_menu-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\mute-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_mute-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\obs-app.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_obs-app.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\qt-display.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_qt-display.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\record-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_record-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\remote-text.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_remote-text.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\scene-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_scene-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\screenshot-obj.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_screenshot-obj.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\ui-validation.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_ui-validation.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\undo-stack-obs.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_undo-stack-obs.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\url-push-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_url-push-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-item-widget.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-item-widget.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\volume-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_volume-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-about.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-about.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-adv-audio.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-adv-audio.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-auto-config.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-auto-config.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-filters.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-filters.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-interaction.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-interaction.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-preview.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-preview.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-properties.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-properties.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-settings.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-settings.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-source-select.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-source-select.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-stats.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-stats.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-status-bar.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-status-bar.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-transform.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-transform.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-dock.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-dock.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-importer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-importer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-log-reply.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-log-reply.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-missing-files.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-missing-files.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-namedialog.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-namedialog.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-projector.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-projector.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-remux.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-remux.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\update-window.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_update-window.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\win-update.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_win-update.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\combobox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_combobox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\double-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_double-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.moc.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.moc.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\slider-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_slider-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\spinbox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_spinbox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\vertical-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_vertical-scroll-area.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigFinishPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigFinishPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStartPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStartPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStreamPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStreamPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigTestPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigTestPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigVideoPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigVideoPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\ColorSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_ColorSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSAbout.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSAbout.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasic.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasic.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicFilters.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicFilters.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicInteraction.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicInteraction.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSettings.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSettings.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSourceSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSourceSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicTransform.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicTransform.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSExtraBrowsers.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSExtraBrowsers.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSImporter.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSImporter.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSLogReply.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSLogReply.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSMissingFiles.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSMissingFiles.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSRemux.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSRemux.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSUpdate.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSUpdate.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\browser-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_browser-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\color-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_color-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\device-select-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_device-select-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\game-capture-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_game-capture-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\image-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_image-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\media-controls.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_media-controls.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
+%rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;DL_OPENGL="libobs-opengl.dll";DL_D3D9="";DL_D3D11="libobs-d3d11.dll";_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Network.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Xml.lib;Qt5Svg.lib;Qt5WinExtras.lib;qtmain.lib;libcurl.lib;avcodec.lib;avutil.lib;avformat.lib;crypt32.lib;$(OutDir)w32-pthreads.lib;$(OutDir)blake2.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)frontend-tools.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+    <PreBuildEvent>
+      <Message>Automatic MOC</Message>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\adv-audio-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_adv-audio-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-base.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-base.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-listener.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-listener.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-oauth.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-oauth.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\balance-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_balance-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\clickable-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_clickable-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\context-bar-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_context-bar-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\crash-report.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_crash-report.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\expand-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_expand-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\focus-list.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_focus-list.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\horizontal-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_horizontal-scroll-area.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\hotkey-edit.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_hotkey-edit.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\locked-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_locked-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\log-viewer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_log-viewer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\menu-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_menu-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\mute-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_mute-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\obs-app.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_obs-app.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\qt-display.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_qt-display.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\record-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_record-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\remote-text.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_remote-text.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\scene-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_scene-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\screenshot-obj.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_screenshot-obj.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\ui-validation.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_ui-validation.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\undo-stack-obs.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_undo-stack-obs.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\url-push-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_url-push-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-item-widget.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-item-widget.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\volume-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_volume-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-about.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-about.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-adv-audio.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-adv-audio.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-auto-config.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-auto-config.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-filters.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-filters.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-interaction.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-interaction.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-preview.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-preview.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-properties.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-properties.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-settings.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-settings.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-source-select.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-source-select.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-stats.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-stats.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-status-bar.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-status-bar.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-transform.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-transform.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-dock.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-dock.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-importer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-importer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-log-reply.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-log-reply.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-missing-files.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-missing-files.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-namedialog.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-namedialog.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-projector.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-projector.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-remux.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-remux.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\update-window.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_update-window.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\win-update.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_win-update.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\combobox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_combobox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\double-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_double-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.moc.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.moc.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\slider-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_slider-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\spinbox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_spinbox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\vertical-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_vertical-scroll-area.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigFinishPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigFinishPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStartPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStartPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStreamPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStreamPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigTestPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigTestPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigVideoPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigVideoPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\ColorSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_ColorSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSAbout.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSAbout.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasic.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasic.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicFilters.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicFilters.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicInteraction.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicInteraction.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSettings.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSettings.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSourceSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSourceSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicTransform.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicTransform.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSExtraBrowsers.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSExtraBrowsers.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSImporter.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSImporter.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSLogReply.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSLogReply.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSMissingFiles.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSMissingFiles.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSRemux.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSRemux.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSUpdate.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSUpdate.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\browser-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_browser-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\color-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_color-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\device-select-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_device-select-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\game-capture-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_game-capture-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\image-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_image-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\media-controls.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_media-controls.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
+%rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>HAVE_OBSCONFIG_H;DL_OPENGL="libobs-opengl.dll";DL_D3D9="";DL_D3D11="libobs-d3d11.dll";_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Full</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Network.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Xml.lib;Qt5Svg.lib;Qt5WinExtras.lib;qtmain.lib;libcurl.lib;avcodec.lib;avutil.lib;avformat.lib;crypt32.lib;$(OutDir)w32-pthreads.lib;$(OutDir)blake2.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)frontend-tools.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+    <PreBuildEvent>
+      <Message>Automatic MOC</Message>
+      <Command>set moc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\moc.exe" 
+set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe" 
+set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe" 
+%moc% "$(SolutionDir)obs-studio-27.2\UI\adv-audio-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_adv-audio-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-base.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-base.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-listener.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-listener.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\auth-oauth.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_auth-oauth.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\balance-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_balance-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\clickable-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_clickable-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\context-bar-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_context-bar-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\crash-report.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_crash-report.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\expand-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_expand-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\focus-list.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_focus-list.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\horizontal-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_horizontal-scroll-area.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\hotkey-edit.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_hotkey-edit.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\locked-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_locked-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\log-viewer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_log-viewer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-controls.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-controls.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\media-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_media-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\menu-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_menu-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\mute-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_mute-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\obs-app.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_obs-app.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\qt-display.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_qt-display.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\record-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_record-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\remote-text.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_remote-text.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\scene-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_scene-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-label.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-label.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\source-tree.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_source-tree.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\screenshot-obj.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_screenshot-obj.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\ui-validation.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_ui-validation.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\undo-stack-obs.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_undo-stack-obs.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\url-push-button.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_url-push-button.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-checkbox.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-checkbox.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\visibility-item-widget.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_visibility-item-widget.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\volume-control.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_volume-control.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-about.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-about.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-adv-audio.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-adv-audio.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-auto-config.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-auto-config.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-filters.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-filters.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-interaction.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-interaction.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-preview.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-preview.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-properties.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-properties.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-settings.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-settings.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-source-select.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-source-select.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-stats.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-stats.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-status-bar.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-status-bar.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-basic-transform.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-basic-transform.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-dock.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-dock.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-importer.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-importer.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-log-reply.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-log-reply.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-main.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-main.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-missing-files.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-missing-files.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-namedialog.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-namedialog.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-projector.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-projector.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\window-remux.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_window-remux.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\update-window.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_update-window.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\win-update\win-update.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_win-update.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\combobox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_combobox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\double-slider.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_double-slider.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\properties-view.moc.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_properties-view.moc.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\slider-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_slider-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\spinbox-ignorewheel.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_spinbox-ignorewheel.cpp"
+%moc% "$(SolutionDir)obs-studio-27.2\UI\vertical-scroll-area.hpp" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\moc_vertical-scroll-area.cpp"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigFinishPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigFinishPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStartPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStartPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigStreamPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigStreamPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigTestPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigTestPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\AutoConfigVideoPage.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_AutoConfigVideoPage.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\ColorSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_ColorSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSAbout.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSAbout.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasic.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasic.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicFilters.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicFilters.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicInteraction.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicInteraction.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSettings.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSettings.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicSourceSelect.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicSourceSelect.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSBasicTransform.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSBasicTransform.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSExtraBrowsers.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSExtraBrowsers.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSImporter.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSImporter.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSLogReply.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSLogReply.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSMissingFiles.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSMissingFiles.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSRemux.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSRemux.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\OBSUpdate.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_OBSUpdate.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\browser-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_browser-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\color-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_color-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\device-select-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_device-select-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\game-capture-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_game-capture-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\image-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_image-source-toolbar.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\media-controls.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_media-controls.h"
+%uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
+%rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\deps\json11\json11.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\deps\libff\libff\ff-util.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\adv-audio-control.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\api-interface.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\audio-encoders.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\auth-base.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\auth-listener.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\auth-oauth.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\combobox-ignorewheel.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\context-bar-controls.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\crash-report.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\double-slider.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\focus-list.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\horizontal-scroll-area.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\hotkey-edit.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\classic.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\importers.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\sl.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\studio.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\importers\xsplit.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\item-widget-helpers.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\locked-checkbox.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\log-viewer.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\media-controls.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\media-slider.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\menu-button.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\obf.c" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\obs-app.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\obs-proxy-style.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\platform-windows.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\properties-view.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\qt-display.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\qt-wrappers.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\record-button.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\remote-text.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\scene-tree.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\slider-absoluteset-style.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\slider-ignorewheel.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\source-label.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\source-tree.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\spinbox-ignorewheel.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\ui-validation.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\undo-stack-obs.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\url-push-button.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\vertical-scroll-area.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\visibility-checkbox.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\visibility-item-widget.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\volume-control.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\win-update\update-window.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update-helpers.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-about.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-adv-audio.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-auto-config-test.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-auto-config.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-filters.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-interaction.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-browser.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-dropfiles.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-icons.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-outputs.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-profiles.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-scene-collections.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-screenshot.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-transitions.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-preview.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-properties.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-settings-stream.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-settings.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-source-select.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-stats.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-status-bar.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-basic-transform.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-dock.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-importer.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-log-reply.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-missing-files.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-namedialog.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-projector.cpp" />
+    <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\window-remux.cpp" />
+    <ClCompile Include="..\..\..\source\frontend\obs\qt_moc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\deps\json11\json11.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\adv-audio-control.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\audio-encoders.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\auth-base.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\auth-listener.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\auth-oauth.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\balance-slider.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\clickable-label.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\combobox-ignorewheel.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\context-bar-controls.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\crash-report.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\display-helpers.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\double-slider.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\expand-checkbox.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\focus-list.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\horizontal-scroll-area.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\hotkey-edit.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\importers\importers.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\item-widget-helpers.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\locked-checkbox.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\log-viewer.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\media-controls.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\media-slider.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\menu-button.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\mute-checkbox.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\obf.h" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\obs-app.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\obs-proxy-style.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\platform.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\properties-view.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\properties-view.moc.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\qt-display.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\qt-wrappers.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\record-button.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\remote-text.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\scene-tree.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\screenshot-obj.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\slider-absoluteset-style.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\slider-ignorewheel.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\source-label.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\source-tree.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\spinbox-ignorewheel.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\ui-validation.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\undo-stack-obs.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\url-push-button.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\vertical-scroll-area.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\visibility-checkbox.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\visibility-item-widget.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\volume-control.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\win-update\update-window.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update-helpers.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\win-update\win-update.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-about.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-adv-audio.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-auto-config.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-filters.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-interaction.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main-outputs.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-main.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-preview.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-properties.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-settings.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-source-select.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-stats.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-status-bar.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-basic-transform.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-dock.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-importer.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-log-reply.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-main.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-missing-files.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-namedialog.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-projector.hpp" />
+    <ClInclude Include="..\..\..\..\obs-studio-27.2\UI\window-remux.hpp" />
+    <ClInclude Include="..\..\..\source\frontend\obs\ui-config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigFinishPage.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigStartPage.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigStreamPage.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigTestPage.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\AutoConfigVideoPage.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\ColorSelect.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\obs.qrc" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSAbout.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasic.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicFilters.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicInteraction.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicSettings.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicSourceSelect.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSBasicTransform.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSExtraBrowsers.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSImporter.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSLogReply.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSMissingFiles.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSRemux.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\OBSUpdate.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\browser-source-toolbar.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\color-source-toolbar.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\device-select-toolbar.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\game-capture-toolbar.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\image-source-toolbar.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\media-controls.ui" />
+    <None Include="..\..\..\..\obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

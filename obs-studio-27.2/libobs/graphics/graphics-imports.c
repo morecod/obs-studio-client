@@ -202,7 +202,7 @@ bool load_graphics_imports(struct gs_exports *exports, void *module,
 	GRAPHICS_IMPORT_OPTIONAL(gs_texture_rebind_iosurface);
 
 	/* win32 specific functions */
-#elif _WIN32
+#elif _MSC_VER
 	GRAPHICS_IMPORT(device_gdi_texture_available);
 	GRAPHICS_IMPORT(device_shared_texture_available);
 	GRAPHICS_IMPORT_OPTIONAL(device_get_duplicator_monitor_info);

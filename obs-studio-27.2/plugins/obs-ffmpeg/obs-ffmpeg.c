@@ -6,7 +6,7 @@
 
 #include "obs-ffmpeg-config.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <dxgi.h>
 #include <util/dstr.h>
 #include <util/windows/win-version.h>
@@ -43,7 +43,7 @@ extern struct obs_encoder_info vaapi_encoder_info;
 
 static const char *nvenc_check_name = "nvenc_check";
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 static const int blacklisted_adapters[] = {
 	0x1298, // GK208M [GeForce GT 720M]
 	0x1140, // GF117M [GeForce 610M/710M/810M/820M / GT 620M/625M/630M/720M]
@@ -164,7 +164,7 @@ finish:
 }
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 extern bool load_nvenc_lib(void);
 #endif
 
@@ -186,7 +186,7 @@ static bool nvenc_supported(void)
 			goto cleanup;
 	}
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	if (!nvenc_device_available()) {
 		goto cleanup;
 	}
@@ -205,7 +205,7 @@ static bool nvenc_supported(void)
 cleanup:
 	if (lib)
 		os_dlclose(lib);
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 finish:
 #endif
 	profile_end(nvenc_check_name);
@@ -222,7 +222,7 @@ static bool vaapi_supported(void)
 }
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 extern void jim_nvenc_load(void);
 extern void jim_nvenc_unload(void);
 #endif
@@ -256,7 +256,7 @@ bool obs_module_load(void)
 #ifndef __APPLE__
 	if (nvenc_supported()) {
 		blog(LOG_INFO, "NVENC supported");
-#ifdef _WIN32
+#ifdef _MSC_VER
 		if (get_win_ver_int() > 0x0601) {
 			jim_nvenc_load();
 		} else {
@@ -268,7 +268,7 @@ bool obs_module_load(void)
 #endif
 		obs_register_encoder(&nvenc_encoder_info);
 	}
-#if !defined(_WIN32) && defined(LIBAVUTIL_VAAPI_AVAILABLE)
+#if !defined(_MSC_VER) && defined(LIBAVUTIL_VAAPI_AVAILABLE)
 	if (vaapi_supported()) {
 		blog(LOG_INFO, "FFMPEG VAAPI supported");
 		obs_register_encoder(&vaapi_encoder_info);
@@ -288,7 +288,7 @@ void obs_module_unload(void)
 	obs_ffmpeg_unload_logging();
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	jim_nvenc_unload();
 #endif
 }

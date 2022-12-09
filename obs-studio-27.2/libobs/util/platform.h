@@ -34,7 +34,7 @@ EXPORT FILE *os_wfopen(const wchar_t *path, const char *mode);
 EXPORT FILE *os_fopen(const char *path, const char *mode);
 EXPORT int64_t os_fgetsize(FILE *file);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 EXPORT int os_stat(const char *file, struct stat *st);
 #else
 #define os_stat stat
@@ -201,7 +201,7 @@ EXPORT uint64_t os_get_proc_virtual_size(void);
 #ifdef __APPLE__
 # define ARCH_BITS 64
 #else
-# ifdef _WIN32
+# ifdef _MSC_VER
 #  ifdef _WIN64
 #   define ARCH_BITS 64
 #  else

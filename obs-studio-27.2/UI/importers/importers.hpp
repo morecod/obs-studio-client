@@ -111,7 +111,7 @@ void TranslatePaths(json11::Json &data, const std::string &rootDir);
 
 static inline std::string GetFilenameFromPath(const std::string &path)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	size_t pos = path.find_last_of('\\');
 	if (pos == -1 || pos < path.find_last_of('/'))
 		pos = path.find_last_of('/');
@@ -129,7 +129,7 @@ static inline std::string GetFilenameFromPath(const std::string &path)
 
 static inline std::string GetFolderFromPath(const std::string &path)
 {
-#ifdef _WIN32
+#ifdef _MSC_VER
 	size_t pos = path.find_last_of('\\');
 	if (pos == -1 || pos < path.find_last_of('/'))
 		pos = path.find_last_of('/');

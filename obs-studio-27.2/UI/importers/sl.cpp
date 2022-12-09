@@ -503,7 +503,7 @@ bool SLImporter::Check(const string &path)
 OBSImporterFiles SLImporter::FindFiles()
 {
 	OBSImporterFiles res;
-#if defined(_WIN32) || defined(__APPLE__)
+#if defined(_MSC_VER) || defined(__APPLE__)
 	char dst[512];
 
 	int found =

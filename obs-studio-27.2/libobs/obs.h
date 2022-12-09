@@ -371,7 +371,7 @@ EXPORT const char *obs_get_locale(void);
 
 /** Initialize the Windows-specific crash handler */
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 EXPORT void obs_init_win32_crash_handler(void);
 #endif
 

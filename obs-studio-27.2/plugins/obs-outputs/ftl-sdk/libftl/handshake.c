@@ -316,7 +316,7 @@ static ftl_response_code_t _ftl_get_response(ftl_stream_configuration_private_t 
 
   if (len <= 0) {
 
-#ifdef _WIN32
+#ifdef _MSC_VER
     int error = WSAGetLastError();
     if (error == WSAETIMEDOUT)
     {

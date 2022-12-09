@@ -26,7 +26,7 @@
 #include "flv-mux.h"
 #include "net-if.h"
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <Iphlpapi.h>
 #else
 #include <sys/ioctl.h>
@@ -574,7 +574,7 @@ static inline bool reset_semaphore(struct ftl_stream *stream)
 	return os_sem_init(&stream->send_sem, 0) == 0;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define socklen_t int
 #endif
 

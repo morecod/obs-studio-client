@@ -93,7 +93,7 @@ static inline char *get_module_name(const char *file)
 	return name.array;
 }
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 extern void reset_win32_symbol_paths(void);
 #endif
 
@@ -298,7 +298,7 @@ static void load_all_callback(void *param, const struct obs_module_info *info)
 }
 
 static const char *obs_load_all_modules_name = "obs_load_all_modules";
-#ifdef _WIN32
+#ifdef _MSC_VER
 static const char *reset_win32_symbol_paths_name = "reset_win32_symbol_paths";
 #endif
 
@@ -306,7 +306,7 @@ void obs_load_all_modules(void)
 {
 	profile_start(obs_load_all_modules_name);
 	obs_find_modules(load_all_callback, NULL);
-#ifdef _WIN32
+#ifdef _MSC_VER
 	profile_start(reset_win32_symbol_paths_name);
 	reset_win32_symbol_paths();
 	profile_end(reset_win32_symbol_paths_name);

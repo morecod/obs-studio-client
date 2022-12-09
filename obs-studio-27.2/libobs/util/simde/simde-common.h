@@ -427,7 +427,7 @@ HEDLEY_DIAGNOSTIC_POP
 #define SIMDE_ENDIAN_ORDER SIMDE_ENDIAN_BIG
 /* Looks like we'll have to rely on the platform.  If we're missing a
  * platform, please let us know. */
-#elif defined(_WIN32)
+#elif defined(_MSC_VER)
 #define SIMDE_ENDIAN_ORDER SIMDE_ENDIAN_LITTLE
 #elif defined(sun) || defined(__sun) /* Solaris */
 #include <sys/byteorder.h>

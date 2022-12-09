@@ -22,7 +22,7 @@
 #include <QThread>
 #include <QWidgetAction>
 #include <QSystemTrayIcon>
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QWinTaskbarButton>
 #endif
 #include <QStyledItemDelegate>
@@ -322,7 +322,7 @@ private:
 	QPointer<QAction> renameScene;
 	QPointer<QAction> renameSource;
 
-#if defined(_WIN32) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if defined(_MSC_VER) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	QWinTaskbarButton *taskBtn = new QWinTaskbarButton(this);
 #endif
 

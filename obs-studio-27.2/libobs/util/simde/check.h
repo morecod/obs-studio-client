@@ -21,7 +21,7 @@
 #include "simde-diagnostic.h"
 #include <stdint.h>
 
-#if !defined(_WIN32)
+#if !defined(_MSC_VER)
 #define SIMDE_SIZE_MODIFIER "z"
 #define SIMDE_CHAR_MODIFIER "hh"
 #define SIMDE_SHORT_MODIFIER "h"

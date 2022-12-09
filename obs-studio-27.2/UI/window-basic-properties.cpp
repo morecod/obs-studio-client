@@ -247,7 +247,7 @@ static obs_source_t *CreateLabel(const char *name, size_t h)
 	text += name;
 	text += " ";
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	obs_data_set_string(font, "face", "Arial");
 #elif defined(__APPLE__)
 	obs_data_set_string(font, "face", "Helvetica");
@@ -261,7 +261,7 @@ static obs_source_t *CreateLabel(const char *name, size_t h)
 	obs_data_set_string(settings, "text", text.c_str());
 	obs_data_set_bool(settings, "outline", false);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	const char *text_source_id = "text_gdiplus";
 #else
 	const char *text_source_id = "text_ft2_source";
@@ -293,7 +293,7 @@ static void CreateTransitionScene(OBSSource scene, const char *text,
 
 	vec2 size;
 	vec2_set(&size, obs_source_get_width(scene),
-#ifdef _WIN32
+#ifdef _MSC_VER
 		 obs_source_get_height(scene));
 #else
 		 obs_source_get_height(scene) * 0.8);

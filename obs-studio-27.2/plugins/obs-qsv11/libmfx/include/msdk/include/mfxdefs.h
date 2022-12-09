@@ -79,7 +79,7 @@ extern "C"
     #define MFX_PACK_BEGIN_STRUCT_W_PTR()    MFX_PACK_BEGIN_X(8)
     #define MFX_PACK_BEGIN_STRUCT_W_L_TYPE() MFX_PACK_BEGIN_X(8)
 /* 32-bit ILP32 data model Windows (Intel architecture) */
-#elif defined(_WIN32) || defined(_M_IX86) && !defined(__linux__)
+#elif defined(_MSC_VER) || defined(_M_IX86) && !defined(__linux__)
     #define MFX_PACK_BEGIN_STRUCT_W_PTR()    MFX_PACK_BEGIN_X(4)
     #define MFX_PACK_BEGIN_STRUCT_W_L_TYPE() MFX_PACK_BEGIN_X(8)
 /* 32-bit ILP32 data model Linux */
@@ -93,13 +93,13 @@ extern "C"
   #define __INT64   long long
   #define __UINT64  unsigned long long
 
-#ifdef _WIN32
+#ifdef _MSC_VER
   #define MFX_CDECL __cdecl
   #define MFX_STDCALL __stdcall
 #else
   #define MFX_CDECL
   #define MFX_STDCALL
-#endif /* _WIN32 */
+#endif /* _MSC_VER */
 
 #define MFX_INFINITE 0xFFFFFFFF
 
@@ -117,7 +117,7 @@ extern "C"
     #define MFX_DEPRECATED_ENUM_FIELD_INSIDE(arg) arg __attribute__((deprecated))
     #define MFX_DEPRECATED_ENUM_FIELD_OUTSIDE(arg)
   #elif defined(__INTEL_COMPILER)
-    #if (defined(_WIN32) || defined(_WIN64))
+    #if (defined(_MSC_VER) || defined(_WIN64))
       #define MFX_DEPRECATED __declspec(deprecated)
       #define MFX_DEPRECATED_ENUM_FIELD_INSIDE(arg) arg
       #define MFX_DEPRECATED_ENUM_FIELD_OUTSIDE(arg) __pragma(deprecated(arg))
@@ -155,7 +155,7 @@ typedef short               mfxI16;
 typedef unsigned short      mfxU16;
 typedef unsigned int        mfxU32;
 typedef int                 mfxI32;
-#if defined( _WIN32 ) || defined ( _WIN64 )
+#if defined( _MSC_VER ) || defined ( _WIN64 )
 typedef unsigned long       mfxUL32;
 typedef long                mfxL32;
 #else

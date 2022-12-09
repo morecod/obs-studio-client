@@ -450,7 +450,7 @@ struct obs_graphics_context {
 	uint64_t frame_time_total_ns;
 	uint64_t fps_total_ns;
 	uint32_t fps_total_frames;
-#ifdef _WIN32
+#ifdef _MSC_VER
 	bool gpu_was_active;
 #endif
 	bool raw_was_active;

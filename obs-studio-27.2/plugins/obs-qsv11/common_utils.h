@@ -10,7 +10,7 @@
 //  - mfxTime
 //  - MSDK_FOPEN
 //  - MSDK_SLEEP
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER)
 #include "bits/windows_defs.h"
 #elif defined(__linux__)
 #include "bits/linux_defs.h"

@@ -26,7 +26,7 @@
 #ifndef __BYTES_H__
 #define __BYTES_H__
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 /* Windows is little endian only */
 #define __LITTLE_ENDIAN 1234
 #define __BIG_ENDIAN    4321
@@ -35,7 +35,7 @@
 
 typedef unsigned char uint8_t;
 
-#else /* !_WIN32 */
+#else /* !_MSC_VER */
 
 #include <sys/param.h>
 
@@ -51,7 +51,7 @@ typedef unsigned char uint8_t;
 #define __LITTLE_ENDIAN	LITTLE_ENDIAN
 #endif
 
-#endif /* !_WIN32 */
+#endif /* !_MSC_VER */
 
 /* define default endianness */
 #ifndef __LITTLE_ENDIAN

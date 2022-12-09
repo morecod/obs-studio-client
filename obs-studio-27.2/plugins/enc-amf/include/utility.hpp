@@ -117,7 +117,7 @@ namespace Utility {
 	//////////////////////////////////////////////////////////////////////////
 	// Threading Specific
 	//////////////////////////////////////////////////////////////////////////
-#if (defined _WIN32) || (defined _WIN64)
+#if (defined _MSC_VER) || (defined _WIN64)
 	void SetThreadName(uint32_t dwThreadID, const char* threadName);
 #endif
 	void SetThreadName(std::thread* pthread, const char* threadName);

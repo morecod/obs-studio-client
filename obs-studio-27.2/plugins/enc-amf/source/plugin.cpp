@@ -32,7 +32,7 @@ extern "C" {
 #include <obs-module.h>
 #include <util/pipe.h>
 #include <util/platform.h>
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER) || defined(_WIN64)
 #include <windows.h>
 #endif
 }
@@ -41,7 +41,7 @@ extern "C" {
 using namespace Plugin;
 using namespace Plugin::AMD;
 
-#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER) || defined(_WIN64)
 BOOL WINAPI DllMain(HINSTANCE, DWORD, LPVOID)
 {
 	return TRUE;
@@ -99,7 +99,7 @@ MODULE_EXPORT bool obs_module_load(void)
 	try {
 		PLOG_DEBUG("<%s> Loading...", __FUNCTION_NAME__);
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 		// Out-of-process AMF Test
 		{
 			unsigned long returnCode = 0xFFFFFFFF;

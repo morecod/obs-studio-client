@@ -270,7 +270,7 @@ int device_create(gs_device_t **p_device, uint32_t adapter)
 	gl_clear_context(device);
 	device->cur_swap = NULL;
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 	blog(LOG_INFO, "Warning: The OpenGL renderer is currently in use.  "
 		       "On windows, the OpenGL renderer can decrease "
 		       "capture performance due to the lack of specific "
