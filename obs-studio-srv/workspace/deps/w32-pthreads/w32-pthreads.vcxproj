@@ -101,6 +101,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -117,6 +124,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -129,6 +143,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -145,6 +166,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\obs-studio-27.2\deps\w32-pthreads\pthread.c" />

@@ -104,6 +104,18 @@
       <AdditionalDependencies>$(OutDir)libobs.lib;$(OutDir)w32-pthreads.lib;$(OutDir)jansson.lib;mbedtls.lib;mbedcrypto.lib;mbedx509.lib;zlib.lib;libcurl.lib;ws2_32.lib;winmm.lib;Iphlpapi.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -123,6 +135,18 @@
       <AdditionalDependencies>$(OutDir)libobs.lib;$(OutDir)w32-pthreads.lib;$(OutDir)jansson.lib;mbedtls.lib;mbedcrypto.lib;mbedx509.lib;zlib.lib;libcurl.lib;ws2_32.lib;winmm.lib;Iphlpapi.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -138,6 +162,18 @@
       <AdditionalDependencies>$(OutDir)libobs.lib;$(OutDir)w32-pthreads.lib;$(OutDir)jansson.lib;mbedtls.lib;mbedcrypto.lib;mbedx509.lib;zlib.lib;libcurl.lib;ws2_32.lib;winmm.lib;Iphlpapi.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,6 +193,18 @@
       <AdditionalDependencies>$(OutDir)libobs.lib;$(OutDir)w32-pthreads.lib;$(OutDir)jansson.lib;mbedtls.lib;mbedcrypto.lib;mbedx509.lib;zlib.lib;libcurl.lib;ws2_32.lib;winmm.lib;Iphlpapi.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\obs-outputs\flv-mux.c" />

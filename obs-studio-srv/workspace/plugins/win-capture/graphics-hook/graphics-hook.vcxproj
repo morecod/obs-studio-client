@@ -109,6 +109,13 @@
       <AdditionalDependencies>dxguid.lib;$(OutDir)ipc-util.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -129,6 +136,13 @@
       <AdditionalDependencies>dxguid.lib;$(OutDir)ipc-util.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -145,6 +159,13 @@
       <AdditionalDependencies>dxguid.lib;$(OutDir)ipc-util.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -165,6 +186,13 @@
       <AdditionalDependencies>dxguid.lib;$(OutDir)ipc-util.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-capture\graphics-hook\d3d10-capture.cpp" />

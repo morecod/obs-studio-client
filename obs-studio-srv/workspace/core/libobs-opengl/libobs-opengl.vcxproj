@@ -103,6 +103,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)glad.lib;$(OutDir)libobs.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -121,6 +128,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)glad.lib;$(OutDir)libobs.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -135,6 +149,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)glad.lib;$(OutDir)libobs.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,6 +174,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)glad.lib;$(OutDir)libobs.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\obs-studio-27.2\libobs-opengl\gl-helpers.h" />

@@ -102,10 +102,10 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <Optimization>Full</Optimization>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>Qt5Widgets.lib;Qt5Network.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Xml.lib;Qt5Svg.lib;Qt5WinExtras.lib;qtmain.lib;libcurl.lib;avcodec.lib;avutil.lib;avformat.lib;crypt32.lib;$(OutDir)w32-pthreads.lib;$(OutDir)blake2.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)frontend-tools.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -208,6 +208,62 @@ set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
 %rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\UI\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-studio\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y
+
+; copy deps
+set srcDepsDir=$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\*.dll
+xcopy "%srcDepsDir%" "%runDirBin%" /s /e /y
+del "%runDirBin%\lua51.dll"
+
+; copy qt lib
+set qtSrcDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\
+copy "%qtSrcDir%\libEGL.dll" "%runDirBin%\libEGL.dll"
+copy "%qtSrcDir%\libGLESv2.dll" "%runDirBin%\libGLESv2.dll"
+copy "%qtSrcDir%\Qt5Core.dll" "%runDirBin%\Qt5Core.dll"
+copy "%qtSrcDir%\Qt5Gui.dll" "%runDirBin%\Qt5Gui.dll"
+copy "%qtSrcDir%\Qt5Network.dll" "%runDirBin%\Qt5Network.dll"
+copy "%qtSrcDir%\Qt5OpenGL.dll" "%runDirBin%\Qt5OpenGL.dll"
+copy "%qtSrcDir%\Qt5Svg.dll" "%runDirBin%\Qt5Svg.dll"
+copy "%qtSrcDir%\Qt5Widgets.dll" "%runDirBin%\Qt5Widgets.dll"
+copy "%qtSrcDir%\Qt5WinExtras.dll" "%runDirBin%\Qt5WinExtras.dll"
+copy "%qtSrcDir%\Qt5Xml.dll" "%runDirBin%\Qt5Xml.dll"
+
+; copy qt plugins
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\iconengines\
+set dstPath=%runDirBin%\iconengines\
+mkdir %dstPath%
+copy "%qtPluginDir%\qsvgicon.dll" "%dstPath%\qsvgicon.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\imageformats\
+set dstPath=%runDirBin%\imageformats\
+mkdir %dstPath%
+copy "%qtPluginDir%\qgif.dll" "%dstPath%\qgif.dll"
+copy "%qtPluginDir%\qico.dll" "%dstPath%\qico.dll"
+copy "%qtPluginDir%\qjpeg.dll" "%dstPath%\qjpeg.dll"
+copy "%qtPluginDir%\qsvg.dll" "%dstPath%\qsvg.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\platforms\
+set dstPath=%runDirBin%platforms\
+mkdir %dstPath%
+copy "%qtPluginDir%\qdirect2d.dll" "%dstPath%\qdirect2d.dll"
+copy "%qtPluginDir%\qminimal.dll" "%dstPath%\qminimal.dll"
+copy "%qtPluginDir%\qwindows.dll" "%dstPath%\qwindows.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\styles\
+set dstPath=%runDirBin%\styles\
+mkdir %dstPath%
+copy "%qtPluginDir%\qwindowsvistastyle.dll" "%dstPath%\qwindowsvistastyle.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -219,11 +275,11 @@ set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe"
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <Optimization>Full</Optimization>
       <WholeProgramOptimization>false</WholeProgramOptimization>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -328,6 +384,62 @@ set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
 %rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\UI\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-studio\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y
+
+; copy deps
+set srcDepsDir=$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\*.dll
+xcopy "%srcDepsDir%" "%runDirBin%" /s /e /y
+del "%runDirBin%\lua51.dll"
+
+; copy qt lib
+set qtSrcDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\
+copy "%qtSrcDir%\libEGL.dll" "%runDirBin%\libEGL.dll"
+copy "%qtSrcDir%\libGLESv2.dll" "%runDirBin%\libGLESv2.dll"
+copy "%qtSrcDir%\Qt5Core.dll" "%runDirBin%\Qt5Core.dll"
+copy "%qtSrcDir%\Qt5Gui.dll" "%runDirBin%\Qt5Gui.dll"
+copy "%qtSrcDir%\Qt5Network.dll" "%runDirBin%\Qt5Network.dll"
+copy "%qtSrcDir%\Qt5OpenGL.dll" "%runDirBin%\Qt5OpenGL.dll"
+copy "%qtSrcDir%\Qt5Svg.dll" "%runDirBin%\Qt5Svg.dll"
+copy "%qtSrcDir%\Qt5Widgets.dll" "%runDirBin%\Qt5Widgets.dll"
+copy "%qtSrcDir%\Qt5WinExtras.dll" "%runDirBin%\Qt5WinExtras.dll"
+copy "%qtSrcDir%\Qt5Xml.dll" "%runDirBin%\Qt5Xml.dll"
+
+; copy qt plugins
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\iconengines\
+set dstPath=%runDirBin%\iconengines\
+mkdir %dstPath%
+copy "%qtPluginDir%\qsvgicon.dll" "%dstPath%\qsvgicon.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\imageformats\
+set dstPath=%runDirBin%\imageformats\
+mkdir %dstPath%
+copy "%qtPluginDir%\qgif.dll" "%dstPath%\qgif.dll"
+copy "%qtPluginDir%\qico.dll" "%dstPath%\qico.dll"
+copy "%qtPluginDir%\qjpeg.dll" "%dstPath%\qjpeg.dll"
+copy "%qtPluginDir%\qsvg.dll" "%dstPath%\qsvg.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\platforms\
+set dstPath=%runDirBin%platforms\
+mkdir %dstPath%
+copy "%qtPluginDir%\qdirect2d.dll" "%dstPath%\qdirect2d.dll"
+copy "%qtPluginDir%\qminimal.dll" "%dstPath%\qminimal.dll"
+copy "%qtPluginDir%\qwindows.dll" "%dstPath%\qwindows.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\styles\
+set dstPath=%runDirBin%\styles\
+mkdir %dstPath%
+copy "%qtPluginDir%\qwindowsvistastyle.dll" "%dstPath%\qwindowsvistastyle.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -337,10 +449,10 @@ set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe"
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <Optimization>Full</Optimization>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\lib\;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>Qt5Widgets.lib;Qt5Network.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Xml.lib;Qt5Svg.lib;Qt5WinExtras.lib;qtmain.lib;libcurl.lib;avcodec.lib;avutil.lib;avformat.lib;crypt32.lib;$(OutDir)w32-pthreads.lib;$(OutDir)blake2.lib;$(OutDir)obs-frontend-api.lib;$(OutDir)frontend-tools.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -443,6 +555,62 @@ set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
 %rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\UI\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-studio\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y
+
+; copy deps
+set srcDepsDir=$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\*.dll
+xcopy "%srcDepsDir%" "%runDirBin%" /s /e /y
+del "%runDirBin%\lua51.dll"
+
+; copy qt lib
+set qtSrcDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\
+copy "%qtSrcDir%\libEGL.dll" "%runDirBin%\libEGL.dll"
+copy "%qtSrcDir%\libGLESv2.dll" "%runDirBin%\libGLESv2.dll"
+copy "%qtSrcDir%\Qt5Core.dll" "%runDirBin%\Qt5Core.dll"
+copy "%qtSrcDir%\Qt5Gui.dll" "%runDirBin%\Qt5Gui.dll"
+copy "%qtSrcDir%\Qt5Network.dll" "%runDirBin%\Qt5Network.dll"
+copy "%qtSrcDir%\Qt5OpenGL.dll" "%runDirBin%\Qt5OpenGL.dll"
+copy "%qtSrcDir%\Qt5Svg.dll" "%runDirBin%\Qt5Svg.dll"
+copy "%qtSrcDir%\Qt5Widgets.dll" "%runDirBin%\Qt5Widgets.dll"
+copy "%qtSrcDir%\Qt5WinExtras.dll" "%runDirBin%\Qt5WinExtras.dll"
+copy "%qtSrcDir%\Qt5Xml.dll" "%runDirBin%\Qt5Xml.dll"
+
+; copy qt plugins
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\iconengines\
+set dstPath=%runDirBin%\iconengines\
+mkdir %dstPath%
+copy "%qtPluginDir%\qsvgicon.dll" "%dstPath%\qsvgicon.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\imageformats\
+set dstPath=%runDirBin%\imageformats\
+mkdir %dstPath%
+copy "%qtPluginDir%\qgif.dll" "%dstPath%\qgif.dll"
+copy "%qtPluginDir%\qico.dll" "%dstPath%\qico.dll"
+copy "%qtPluginDir%\qjpeg.dll" "%dstPath%\qjpeg.dll"
+copy "%qtPluginDir%\qsvg.dll" "%dstPath%\qsvg.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\platforms\
+set dstPath=%runDirBin%platforms\
+mkdir %dstPath%
+copy "%qtPluginDir%\qdirect2d.dll" "%dstPath%\qdirect2d.dll"
+copy "%qtPluginDir%\qminimal.dll" "%dstPath%\qminimal.dll"
+copy "%qtPluginDir%\qwindows.dll" "%dstPath%\qwindows.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\styles\
+set dstPath=%runDirBin%\styles\
+mkdir %dstPath%
+copy "%qtPluginDir%\qwindowsvistastyle.dll" "%dstPath%\qwindowsvistastyle.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -454,11 +622,11 @@ set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe"
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtCore;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtGui;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWidgets;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtWinExtras;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtSvg;$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\include\QtXml;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\include;$(SolutionDir)obs-studio-27.2\deps\w32-pthreads;$(SolutionDir)obs-studio-27.2\deps\blake2\src;$(SolutionDir)obs-studio-27.2\deps\json11;$(SolutionDir)obs-studio-27.2\deps\libff;$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\;$(SolutionDir)obs-studio-27.2\UI\;$(SolutionDir)obs-studio-27.2\UI\obs-frontend-api;$(SolutionDir)obs-studio-27.2\libobs;$(SolutionDir)obs-studio-srv\source\config;$(SolutionDir)obs-studio-srv\source\frontend\obs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <Optimization>Full</Optimization>
       <WholeProgramOptimization>false</WholeProgramOptimization>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -563,6 +731,62 @@ set rcc="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\rcc.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\forms\source-toolbar\text-source-toolbar.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\ui_text-source-toolbar.h"
 %rcc% "$(SolutionDir)obs-studio-27.2\UI\forms\obs.qrc" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\obs\qrc_obs.cpp"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\UI\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-studio\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y
+
+; copy deps
+set srcDepsDir=$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\*.dll
+xcopy "%srcDepsDir%" "%runDirBin%" /s /e /y
+del "%runDirBin%\lua51.dll"
+
+; copy qt lib
+set qtSrcDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\
+copy "%qtSrcDir%\libEGL.dll" "%runDirBin%\libEGL.dll"
+copy "%qtSrcDir%\libGLESv2.dll" "%runDirBin%\libGLESv2.dll"
+copy "%qtSrcDir%\Qt5Core.dll" "%runDirBin%\Qt5Core.dll"
+copy "%qtSrcDir%\Qt5Gui.dll" "%runDirBin%\Qt5Gui.dll"
+copy "%qtSrcDir%\Qt5Network.dll" "%runDirBin%\Qt5Network.dll"
+copy "%qtSrcDir%\Qt5OpenGL.dll" "%runDirBin%\Qt5OpenGL.dll"
+copy "%qtSrcDir%\Qt5Svg.dll" "%runDirBin%\Qt5Svg.dll"
+copy "%qtSrcDir%\Qt5Widgets.dll" "%runDirBin%\Qt5Widgets.dll"
+copy "%qtSrcDir%\Qt5WinExtras.dll" "%runDirBin%\Qt5WinExtras.dll"
+copy "%qtSrcDir%\Qt5Xml.dll" "%runDirBin%\Qt5Xml.dll"
+
+; copy qt plugins
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\iconengines\
+set dstPath=%runDirBin%\iconengines\
+mkdir %dstPath%
+copy "%qtPluginDir%\qsvgicon.dll" "%dstPath%\qsvgicon.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\imageformats\
+set dstPath=%runDirBin%\imageformats\
+mkdir %dstPath%
+copy "%qtPluginDir%\qgif.dll" "%dstPath%\qgif.dll"
+copy "%qtPluginDir%\qico.dll" "%dstPath%\qico.dll"
+copy "%qtPluginDir%\qjpeg.dll" "%dstPath%\qjpeg.dll"
+copy "%qtPluginDir%\qsvg.dll" "%dstPath%\qsvg.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\platforms\
+set dstPath=%runDirBin%platforms\
+mkdir %dstPath%
+copy "%qtPluginDir%\qdirect2d.dll" "%dstPath%\qdirect2d.dll"
+copy "%qtPluginDir%\qminimal.dll" "%dstPath%\qminimal.dll"
+copy "%qtPluginDir%\qwindows.dll" "%dstPath%\qwindows.dll"
+
+set qtPluginDir=$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\plugins\styles\
+set dstPath=%runDirBin%\styles\
+mkdir %dstPath%
+copy "%qtPluginDir%\qwindowsvistastyle.dll" "%dstPath%\qwindowsvistastyle.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\obs-studio-27.2\deps\json11\json11.cpp" />

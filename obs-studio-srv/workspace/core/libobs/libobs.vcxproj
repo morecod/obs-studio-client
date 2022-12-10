@@ -105,6 +105,19 @@
       <AdditionalDependencies>avrt.lib;winmm.lib;$(OutDir)w32-pthreads.lib;$(OutDir)caption.lib;$(OutDir)jansson.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avcodec.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avformat.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avutil.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swscale.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swresample.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+      <Message>Updating to rundir</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -125,6 +138,19 @@
       <AdditionalDependencies>avrt.lib;winmm.lib;$(OutDir)w32-pthreads.lib;$(OutDir)caption.lib;$(OutDir)jansson.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avcodec.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avformat.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avutil.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swscale.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swresample.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+      <Message>Updating to rundir</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -141,6 +167,19 @@
       <AdditionalDependencies>avrt.lib;winmm.lib;$(OutDir)w32-pthreads.lib;$(OutDir)caption.lib;$(OutDir)jansson.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avcodec.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avformat.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avutil.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swscale.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swresample.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+      <Message>Updating to rundir</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -161,6 +200,19 @@
       <AdditionalDependencies>avrt.lib;winmm.lib;$(OutDir)w32-pthreads.lib;$(OutDir)caption.lib;$(OutDir)jansson.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avcodec.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avformat.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\avutil.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swscale.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\swresample.lib;$(SolutionDir)dependencies2019\win$(PlatformArchitecture)\bin\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+      <Message>Updating to rundir</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\obs-studio-27.2\libobs\audio-monitoring\win32\wasapi-output.h" />

@@ -107,6 +107,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -125,6 +132,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -139,6 +153,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,6 +178,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirData=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\win-capture\
+set srcFile=$(TargetPath)
+set dstFile=%runDirData%\$(TargetFileName)
+mkdir "%runDirData%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\win-capture\inject-helper\inject-helper.c" />

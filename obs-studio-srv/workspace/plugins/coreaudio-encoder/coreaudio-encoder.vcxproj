@@ -103,6 +103,18 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -121,6 +133,18 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -135,6 +159,18 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,6 +189,18 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\obs-studio-27.2\plugins\coreaudio-encoder\encoder.cpp" />

@@ -120,6 +120,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-output-ui\forms\output.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\decklink-output-ui\ui_output.h"</Command>
       <Message>Automatic MOC</Message>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -155,6 +162,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-output-ui\forms\output.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\decklink-output-ui\ui_output.h"</Command>
       <Message>Automatic MOC</Message>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -186,6 +200,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-output-ui\forms\output.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\decklink-output-ui\ui_output.h"</Command>
       <Message>Automatic MOC</Message>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -221,6 +242,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-output-ui\forms\output.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\frontend\decklink-output-ui\ui_output.h"</Command>
       <Message>Automatic MOC</Message>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\obs-studio-27.2\UI\combobox-ignorewheel.cpp" />

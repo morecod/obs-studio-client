@@ -106,6 +106,17 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -127,6 +138,17 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -144,6 +166,17 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -165,6 +198,17 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirBin=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\
+set srcFile=$(TargetPath)
+set dstFile=%runDirBin%\$(TargetFileName)
+mkdir "%runDirBin%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\obs-studio-27.2\plugins\obs-ffmpeg\ffmpeg-mux\ffmpeg-mux.c" />

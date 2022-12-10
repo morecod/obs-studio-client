@@ -110,6 +110,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -135,6 +142,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -156,6 +170,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -181,6 +202,13 @@ set uic="$(SolutionDir)qt-5.15.2\msvc2019_$(PlatformArchitecture)\bin\uic.exe"
 %moc% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.h" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\moc_decklink-captions.cpp"
 %uic% "$(SolutionDir)obs-studio-27.2\UI\frontend-plugins\decklink-captions\forms\captions.ui" -o "$(SolutionDir)obs-studio-srv\qt_gen\plugins\decklink\ui_captions.h"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\obs-studio-27.2\UI\frontend-plugins\decklink-captions\decklink-captions.cpp" />

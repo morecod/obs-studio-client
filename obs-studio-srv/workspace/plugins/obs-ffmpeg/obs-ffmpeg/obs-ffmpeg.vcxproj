@@ -106,6 +106,18 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)opts-parser.lib;$(OutDir)media-playback.lib;$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -127,6 +139,18 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)opts-parser.lib;$(OutDir)media-playback.lib;$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -144,6 +168,18 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)opts-parser.lib;$(OutDir)media-playback.lib;$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -165,6 +201,18 @@
       <AdditionalDependencies>avcodec.lib;avfilter.lib;avdevice.lib;avutil.lib;swscale.lib;avformat.lib;swresample.lib;$(OutDir)opts-parser.lib;$(OutDir)media-playback.lib;$(OutDir)w32-pthreads.lib;$(OutDir)libobs.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>set runDirPlugins=$(SolutionDir)build.rundir\$(Configuration)\obs$(PlatformArchitecture)\obs-plugins\
+set srcFile=$(TargetPath)
+set dstFile=%runDirPlugins%\$(TargetFileName)
+mkdir "%runDirPlugins%"
+copy "%srcFile%" "%dstFile%"
+
+set srcDataDir=$(SolutionDir)obs-studio-27.2\plugins\$(ProjectName)\data\*.*
+set dstDataDir=$(SolutionDir)build.rundir\$(Configuration)\data\obs-plugins\$(ProjectName)\
+mkdir dstDataDir
+xcopy "%srcDataDir%" "%dstDataDir%" /s /e /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\obs-studio-27.2\plugins\obs-ffmpeg\jim-nvenc.h" />

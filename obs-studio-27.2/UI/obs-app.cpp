@@ -101,8 +101,8 @@ QPointer<OBSLogViewer> obsLogViewer;
 
 // GPU hint exports for AMD/NVIDIA laptops
 #ifdef _MSC_VER
-///extern "C" __declspec(dllexport) DWORD NvOptimusEnablement = 1;
-///extern "C" __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+extern "C" __declspec(dllexport) DWORD NvOptimusEnablement = 0;
+extern "C" __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 0;
 #endif
 
 QObject *CreateShortcutFilter()

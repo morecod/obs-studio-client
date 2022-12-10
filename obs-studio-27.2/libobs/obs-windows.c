@@ -33,17 +33,25 @@ const char *get_module_extension(void)
 	return ".dll";
 }
 
+#if defined(OBS_SERVER_VERSION)
+#define BIT_STRING ""
+#else
 #ifdef _WIN64
 #define BIT_STRING "64bit"
 #else
 #define BIT_STRING "32bit"
 #endif
+#endif // OBS_SERVER_VERSION
 
+///static const char *module_bin[] = {
+///	"../../obs-plugins/" BIT_STRING,
+///};
 static const char *module_bin[] = {
-	"../../obs-plugins/" BIT_STRING,
+	OBS_RELATIVE_PREFIX "" OBS_PLUGIN_DESTINATION "/" BIT_STRING,
 };
 
-static const char *module_data[] = {"../../data/obs-plugins/%module%"};
+///static const char *module_data[] = {"../../data/obs-plugins/%module%"};
+static const char *module_data[] = {OBS_DATA_PATH"/obs-plugins/%module%"};
 
 static const int module_patterns_size =
 	sizeof(module_bin) / sizeof(module_bin[0]);
@@ -60,7 +68,8 @@ char *find_libobs_data_file(const char *file)
 	struct dstr path;
 	dstr_init(&path);
 
-	if (check_path(file, "../../data/libobs/", &path))
+	/// orignal |path|: "../../data/libobs/"
+	if (check_path(file, OBS_DATA_PATH"/libobs/" , &path))
 		return path.array;
 
 	dstr_free(&path);
